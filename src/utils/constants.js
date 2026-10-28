@@ -43,12 +43,16 @@ export const SOCIAL_LINKS = [
 ];
 
 export const HERO_COLOR_PALETTES = [
-  { id: 'royal-blue', name: 'أزرق ملكي', hex: '#1d4ed8', bgClass: 'bg-blue-700' },
-  { id: 'deep-purple', name: 'أرجواني داكن', hex: '#6d28d9', bgClass: 'bg-purple-700' },
-  { id: 'turquoise', name: 'فيروزي بحري', hex: '#0891b2', bgClass: 'bg-cyan-600' },
-  { id: 'emerald', name: 'أخضر زمردي', hex: '#059669', bgClass: 'bg-emerald-600' },
-  { id: 'warm-amber', name: 'عنبري دافئ', hex: '#d97706', bgClass: 'bg-amber-500' },
-  { id: 'cool-grey', name: 'رمادي عصري', hex: '#64748b', bgClass: 'bg-slate-500' },
+  { id: 'blue', code: '921', name: 'أزرق', hex: '#1550A2', bgClass: 'bg-[#1550A2]', img: '/media/images/hero/hero-wall-blue.jpg' },
+  { id: 'skyblue', code: '922', name: 'لبني', hex: '#76BDE8', bgClass: 'bg-[#76BDE8]', img: '/media/images/hero/hero-wall-skyblue.jpg' },
+  { id: 'green', code: '919', name: 'أخضر', hex: '#187B42', bgClass: 'bg-[#187B42]', img: '/media/images/hero/hero-wall-green.jpg' },
+  { id: 'yellow', code: '964', name: 'أصفر', hex: '#F3CC21', bgClass: 'bg-[#F3CC21]', img: '/media/images/hero/hero-wall-yellow.jpg' },
+  { id: 'red', code: '915', name: 'أحمر', hex: '#C71E2D', bgClass: 'bg-[#C71E2D]', img: '/media/images/hero/hero-wall-red.jpg' },
+  { id: 'camel', code: '991', name: 'جملي', hex: '#BD8955', bgClass: 'bg-[#BD8955]', img: '/media/images/hero/hero-wall-camel.jpg' },
+  { id: 'brown', code: '909', name: 'بني', hex: '#75452D', bgClass: 'bg-[#75452D]', img: '/media/images/hero/hero-wall-brown.jpg' },
+  { id: 'darkbrown', code: '951', name: 'بني غامق', hex: '#482719', bgClass: 'bg-[#482719]', img: '/media/images/hero/hero-wall-darkbrown.jpg' },
+  { id: 'gray', code: '925', name: 'رصاصي', hex: '#85898C', bgClass: 'bg-[#85898C]', img: '/media/images/hero/hero-wall-gray.jpg' },
+  { id: 'black', code: '950', name: 'أسود', hex: '#111111', bgClass: 'bg-[#111111]', img: '/media/images/hero/hero-wall-black.jpg' },
 ];
 
 export const ASSETS = {

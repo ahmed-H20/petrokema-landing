@@ -1,67 +1,23 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Check } from 'lucide-react';
+import { HERO_COLOR_PALETTES } from '@/utils/constants';
 
-/**
- * 6 Wall Color Palettes with Hex Codes and Real High-Resolution Room Backgrounds
- */
-export const COLOR_PALETTES = [
-  {
-    id: 1,
-    name: 'أرجواني ملكي',
-    hex: '#7c3aed',
-    bgClass: 'bg-[#7c3aed]',
-    img: '/media/images/hero-wall-purple.png',
-  },
-  {
-    id: 2,
-    name: 'أزرق ملكي',
-    hex: '#1d4ed8',
-    bgClass: 'bg-[#1d4ed8]',
-    img: '/media/images/hero-wall-blue.png',
-  },
-  {
-    id: 3,
-    name: 'فيروزي بحري',
-    hex: '#0891b2',
-    bgClass: 'bg-[#0891b2]',
-    img: '/media/images/hero-wall-teal.png',
-  },
-  {
-    id: 4,
-    name: 'أخضر زمردي',
-    hex: '#10b981',
-    bgClass: 'bg-[#10b981]',
-    img: '/media/images/hero-wall-green.png',
-  },
-  {
-    id: 5,
-    name: 'أصفر دافئ',
-    hex: '#f59e0b',
-    bgClass: 'bg-[#f59e0b]',
-    img: '/media/images/hero-wall-yellow.png',
-  },
-  {
-    id: 6,
-    name: 'رمادي عصري',
-    hex: '#94a3b8',
-    bgClass: 'bg-[#94a3b8]',
-    img: '/media/images/hero-wall-gray.png',
-  },
-];
+export const COLOR_PALETTES = HERO_COLOR_PALETTES;
 
 /**
  * HeroSection Component
  * 
  * Features:
- * - Full-width hero container displaying living room interior background.
- * - Strict RTL layout with large bold typography on the right.
- * - Horizontal palette of 6 clickable color circles at bottom center.
- * - State-driven active color changer with white ring indicator.
- * - Smooth Framer Motion crossfade transition between background images.
+ * - High-definition master interior room background with crystal clarity.
+ * - Interactive color switcher with 10 exact paint shades & color codes.
+ * - Strict RTL layout with prominent Arabic typography on the right.
+ * - Horizontal glassmorphic palette with active color indicator and code tooltip.
+ * - Smooth Framer Motion crossfade transition between wall colors.
  */
 export const HeroSection = () => {
-  // Default active color is Royal Blue (id: 2)
-  const [activeColor, setActiveColor] = useState(COLOR_PALETTES[1]);
+  // Default active color is Blue (id: 'blue', code: '921')
+  const [activeColor, setActiveColor] = useState(HERO_COLOR_PALETTES[0]);
 
   return (
     <section 
@@ -74,19 +30,19 @@ export const HeroSection = () => {
           <motion.img
             key={activeColor.id}
             src={activeColor.img}
-            alt={`جدار صالون عصري بدهان ${activeColor.name}`}
+            alt={`جدار صالون عصري بدهان ${activeColor.name} - كود ${activeColor.code}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.65, ease: 'easeInOut' }}
+            transition={{ duration: 0.55, ease: 'easeInOut' }}
             className="absolute inset-0 w-full h-full object-cover object-[center_45%] sm:object-center pointer-events-none"
           />
         </AnimatePresence>
       </div>
 
-      {/* 2. Readability Gradient Overlay on the Right (Ensures text pops on all wall colors) */}
+      {/* 2. Readability Gradient Overlay on the Right */}
       <div 
-        className="absolute inset-0 bg-gradient-to-l from-black/45 via-black/15 to-transparent pointer-events-none" 
+        className="absolute inset-0 bg-gradient-to-l from-black/55 via-black/20 to-transparent pointer-events-none" 
         aria-hidden="true"
       />
 
@@ -106,31 +62,49 @@ export const HeroSection = () => {
         </p>
       </div>
 
-      {/* 4. Horizontal Color Palette (6 circles at bottom center) */}
+      {/* 4. Horizontal Color Palette (10 colors with codes & live preview) */}
       <div 
-        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 sm:gap-4 select-none"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5 select-none w-auto max-w-[95%]"
         role="group"
         aria-label="محدد ألوان الدهان التفاعلي"
       >
-        {COLOR_PALETTES.map((color) => {
-          const isActive = activeColor.id === color.id;
-          return (
-            <button
-              key={color.id}
-              type="button"
-              onClick={() => setActiveColor(color)}
-              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-300 transform cursor-pointer outline-none ${
-                color.bgClass
-              } ${
-                isActive
-                  ? 'ring-2 ring-white ring-offset-2 ring-offset-black/30 scale-110 shadow-2xl'
-                  : 'opacity-85 hover:opacity-100 hover:scale-110 shadow-md'
-              }`}
-              title={color.name}
-              aria-label={`اختيار لون ${color.name}`}
-            />
-          );
-        })}
+        {/* Active Color Info Tooltip */}
+        <div className="bg-black/65 backdrop-blur-md text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-lg border border-white/15 flex items-center gap-2.5">
+          <span
+            className="w-3 h-3 rounded-full border border-white/50 shadow-xs"
+            style={{ backgroundColor: activeColor.hex }}
+          />
+          <span>اللون: {activeColor.name}</span>
+          <span className="text-white/60 text-[11px] font-mono">كود: {activeColor.code}</span>
+        </div>
+
+        {/* 10 Color Circles Container */}
+        <div className="flex items-center gap-2 sm:gap-3 px-4 py-2 sm:py-2.5 rounded-full bg-black/55 backdrop-blur-xl border border-white/20 shadow-2xl overflow-x-auto max-w-full">
+          {COLOR_PALETTES.map((color) => {
+            const isActive = activeColor.id === color.id;
+            return (
+              <button
+                key={color.id}
+                type="button"
+                onClick={() => setActiveColor(color)}
+                style={{ backgroundColor: color.hex }}
+                className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-300 transform cursor-pointer outline-none relative shrink-0 ${
+                  isActive
+                    ? 'ring-3 ring-white ring-offset-2 ring-offset-black/60 scale-120 shadow-2xl'
+                    : 'opacity-85 hover:opacity-100 hover:scale-110 shadow-md'
+                }`}
+                title={`${color.name} (كود ${color.code})`}
+                aria-label={`اختيار لون ${color.name} كود ${color.code}`}
+              >
+                {isActive && (
+                  <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <Check className="w-3.5 h-3.5 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" />
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

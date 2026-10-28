@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useOutletContext, Link } from 'react-router-dom';
+import { useOutletContext, Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   PRODUCT_CATEGORIES,
@@ -23,12 +23,21 @@ import { Check, X, PhoneCall } from 'lucide-react';
  */
 export const ProductsPage = () => {
   const { openContactModal } = useOutletContext() || {};
+  const [searchParams] = useSearchParams();
+  const categoryParam = searchParams.get('category');
 
   const [categories, setCategories] = useState(PRODUCT_CATEGORIES);
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState(categoryParam || 'all');
   const [productsData, setProductsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  // Sync activeCategory when URL search param changes
+  useEffect(() => {
+    if (categoryParam) {
+      setActiveCategory(categoryParam);
+    }
+  }, [categoryParam]);
 
   // Load live categories from backend
   useEffect(() => {
