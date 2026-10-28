@@ -16,6 +16,7 @@ import {
   ArrowRight,
   Sparkles,
 } from 'lucide-react';
+import { WhatsAppIcon, openWhatsAppQuote } from '../utils/whatsapp';
 
 /**
  * ProductDetailsPage Component
@@ -303,17 +304,8 @@ export const ProductDetailsPage = () => {
                         <div className="text-[11px] text-slate-400 mt-0.5 truncate">
                           {size.subText}
                         </div>
-                        <div className="mt-3 flex items-baseline gap-1">
-                          <span
-                            className={`text-base sm:text-lg font-black ${
-                              isSelected ? 'text-brand-orange' : 'text-slate-800'
-                            }`}
-                          >
-                            {size.price}
-                          </span>
-                          <span className="text-[10px] text-slate-400 font-medium">
-                            {size.currency}
-                          </span>
+                        <div className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-orange">
+                          <span>طلب تسعير ومواصفات</span>
                         </div>
                       </button>
                     );
@@ -381,7 +373,29 @@ export const ProductDetailsPage = () => {
               {/* ========================================================= */}
               <div className="space-y-4">
                 
-                {/* Full-width Solid Orange Quote Button */}
+                {/* Primary WhatsApp Instant Quote Button */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    openWhatsAppQuote({
+                      product: productData,
+                      size: selectedSize,
+                      color: selectedColor,
+                      category: productData.categoryLabel,
+                    })
+                  }
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm sm:text-base py-4 px-6 rounded-2xl shadow-lg hover:shadow-emerald-600/30 transition-all flex items-center justify-center gap-3 active:scale-[0.99] cursor-pointer group"
+                >
+                  <WhatsAppIcon className="w-5 h-5 flex-shrink-0 text-white fill-current group-hover:scale-110 transition-transform" />
+                  <span>طلب عرض أسعار فوري عبر واتساب (WhatsApp Quote)</span>
+                  {selectedSize && (
+                    <span className="text-xs bg-emerald-700/60 px-2 py-0.5 rounded-md hidden sm:inline">
+                      {selectedSize.name}
+                    </span>
+                  )}
+                </button>
+
+                {/* Secondary: Request via standard form */}
                 <button
                   type="button"
                   onClick={() => {
@@ -391,10 +405,10 @@ export const ProductDetailsPage = () => {
                       window.location.href = '/contact';
                     }
                   }}
-                  className="w-full bg-brand-orange hover:bg-brand-orange-hover text-white font-black text-sm sm:text-base py-4 px-6 rounded-2xl shadow-lg hover:shadow-orange-500/25 transition-all flex items-center justify-center gap-2.5 active:scale-[0.99] cursor-pointer"
+                  className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm py-3 px-5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <FileText className="w-5 h-5 flex-shrink-0" />
-                  <span>طلب عرض أسعار للمشاريع والكميات (Request a Quote)</span>
+                  <FileText className="w-4 h-4 text-slate-500" />
+                  <span>أو إرسال طلب عرض سعر عبر النموذج الإلكتروني بالموقع</span>
                 </button>
 
                 {/* Engineering Consultation Banner with Hotline 19842 */}

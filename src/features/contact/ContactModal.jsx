@@ -3,6 +3,7 @@ import { X, CheckCircle2, User, Phone, Mail, MessageSquare } from 'lucide-react'
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import { submitContactForm } from '../../api/contact.api';
+import { WhatsAppIcon, openWhatsAppQuote } from '../../utils/whatsapp';
 
 export const ContactModal = ({ isOpen, onClose, product = null }) => {
   const [formData, setFormData] = useState({
@@ -96,6 +97,43 @@ export const ContactModal = ({ isOpen, onClose, product = null }) => {
               <p className="text-sm text-slate-500 mt-1">
                 اترك بياناتك وسنساعدك في اختيار نوع الدهان والكميات المناسبة لمشروعك.
               </p>
+            </div>
+
+            {/* Quick WhatsApp Fast Track Card */}
+            <div className="mb-6 p-3.5 sm:p-4 rounded-2xl bg-emerald-50/80 border border-emerald-200/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="flex items-center gap-3 text-right">
+                <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-md">
+                  <WhatsAppIcon className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-xs sm:text-sm font-extrabold text-emerald-950">
+                    تفضل الرد الفوري المباشر؟
+                  </h4>
+                  <p className="text-[11px] text-emerald-700">
+                    تواصل فوراً عبر واتساب مع مهندسينا للحصول على عرض السعر
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  openWhatsAppQuote({
+                    product,
+                    category: formData.category,
+                    note: formData.message || 'طلب استشارة وعرض أسعار',
+                  });
+                  onClose();
+                }}
+                className="w-full sm:w-auto px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md hover:shadow-emerald-600/30 transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer"
+              >
+                <span>مراسلة واتساب الآن</span>
+              </button>
+            </div>
+
+            <div className="relative flex py-1 items-center mb-4">
+              <div className="flex-grow border-t border-slate-200"></div>
+              <span className="flex-shrink mx-3 text-xs text-slate-400 font-semibold">أو عبر النموذج الإلكتروني</span>
+              <div className="flex-grow border-t border-slate-200"></div>
             </div>
 
             {errorMessage && (

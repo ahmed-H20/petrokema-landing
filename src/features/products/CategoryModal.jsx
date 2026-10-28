@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowLeft, Check, Sparkles, Layers } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { WhatsAppIcon, openWhatsAppQuote } from '../../utils/whatsapp';
 
 /**
  * CategoryModal Component
@@ -311,16 +312,35 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
               <ArrowLeft className="w-4 h-4 transform transition-transform group-hover:-translate-x-1" />
             </button>
 
-            <button
-              type="button"
-              onClick={() => {
-                onClose();
-                onRequestQuote && onRequestQuote(category);
-              }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm rounded-xl transition-all duration-200 active:scale-98"
-            >
-              <span>طلب استشارة ومواصفات فنية</span>
-            </button>
+            <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
+              {/* Direct WhatsApp Quote Button for Category + Selected Color */}
+              <button
+                type="button"
+                onClick={() =>
+                  openWhatsAppQuote({
+                    category: category.title,
+                    color: activeColor,
+                    note: `طلب مواصفات وأسعار من قسم ${category.title}`,
+                  })
+                }
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-emerald-600/30 transition-all duration-200 active:scale-98 cursor-pointer"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white" />
+                <span>طلب تسعير واستشارة عبر واتساب</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  onRequestQuote && onRequestQuote(category);
+                }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition-all duration-200 active:scale-98 cursor-pointer"
+                title="نموذج استشارة"
+              >
+                <span>نموذج الموقع</span>
+              </button>
+            </div>
           </div>
         </div>
       </motion.div>

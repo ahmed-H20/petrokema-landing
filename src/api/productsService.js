@@ -1,17 +1,15 @@
 import { axiosClient, resolveImageUrl } from './axiosClient';
-import { getProducts, getProductById, getCategories, normalizeProduct } from './products.api';
+import { getProducts, getProductById, getCategories, normalizeProduct, MOCK_PRODUCTS } from './products.api';
 
 /**
  * Fallback Categories Definition
  */
 export const PRODUCT_CATEGORIES = [
-  { id: 'all', label: 'الكل', subtitle: 'كافة دهانات ومواد بتروكيما', count: 0 },
-  { id: 'acrylic', label: 'أكريليك', subtitle: 'دهانات داخلي / خارجي', count: 3 },
-  { id: 'plastic', label: 'بلاستيك', subtitle: 'مط', count: 3 },
-  { id: 'sealer', label: 'سيلر وورنيش', subtitle: 'اكيريلك مائي', count: 3 },
-  { id: 'putty', label: 'معجون', subtitle: 'معجون داخلي / خارجي', count: 2 },
-  { id: 'primer', label: 'برايمر', subtitle: 'مقاومة للعوامل الجوية', count: 1 },
-  { id: 'lacquer', label: 'لاكيه', subtitle: 'لامع ونصف لامع وميتالك', count: 2 },
+  { id: 'all', label: 'الكل', subtitle: 'كافة دهانات ومواد بتروكيما (15 صنفاً)', count: 15 },
+  { id: 'foundation', label: 'التأسيس', subtitle: 'سيلر مقاوم 333، بريمر، بترو فورس', count: 3 },
+  { id: 'putty', label: 'المعجون', subtitle: 'معجون بترو 100، معجون أكريليك', count: 2 },
+  { id: 'paints', label: 'الدهانات', subtitle: 'بستله ايكو كيم، كيما برو 5050، بلس 700، ستار 15000، ستار 20000', count: 5 },
+  { id: 'finishing', label: 'التشطيب', subtitle: 'ورنيش، كيما كوت مط 500، ولاكيه سوبر ستار وشامبين وميتال', count: 5 },
 ];
 
 /**
@@ -101,8 +99,11 @@ export async function fetchProductsByCategory(categoryId = 'all') {
 
   // Fallback cache if server returns 0 or offline
   const key = String(categoryId).toLowerCase();
-  const fallback = MOCK_PRODUCTS_DATABASE[key] || MOCK_PRODUCTS_DATABASE.acrylic;
-  return fallback.map(normalizeProduct);
+  if (key === 'all') {
+    return MOCK_PRODUCTS.map(normalizeProduct);
+  }
+  const filtered = MOCK_PRODUCTS.filter((p) => p.category === key);
+  return (filtered.length > 0 ? filtered : MOCK_PRODUCTS).map(normalizeProduct);
 }
 
 /**

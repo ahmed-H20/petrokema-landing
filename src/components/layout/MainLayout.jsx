@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ContactModal from '../../features/contact/ContactModal';
+import FloatingWhatsApp from '../ui/FloatingWhatsApp';
 
 export const MainLayout = ({ isLoading = false }) => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -32,6 +33,9 @@ export const MainLayout = ({ isLoading = false }) => {
 
       {/* Global Footer */}
       <Footer />
+
+      {/* Persistent Floating WhatsApp Connection Button */}
+      {!isLoading && <FloatingWhatsApp />}
 
       {/* Reusable Contact / Consultation Modal */}
       <ContactModal

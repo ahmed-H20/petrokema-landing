@@ -10,6 +10,7 @@ import ScrollReveal from '../components/ui/ScrollReveal';
 import Button from '../components/ui/Button';
 import Badge from '../components/ui/Badge';
 import { Check, X, PhoneCall } from 'lucide-react';
+import { WhatsAppIcon, openWhatsAppQuote } from '../utils/whatsapp';
 
 /**
  * ProductsPage Component
@@ -249,13 +250,24 @@ export const ProductsPage = () => {
                       </p>
                     )}
 
-                    {/* View Details Action Link */}
-                    <Link
-                      to={`/products/${product.id}`}
-                      className="mt-4 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs sm:text-sm font-bold px-7 py-2.5 rounded-lg shadow-md hover:shadow-orange-500/25 transition-all duration-200 active:scale-95 cursor-pointer inline-flex items-center justify-center"
-                    >
-                      عرض التفاصيل
-                    </Link>
+                    {/* View Details & Direct WhatsApp Quote Actions */}
+                    <div className="mt-4 flex items-center justify-center gap-2 w-full max-w-[220px]">
+                      <Link
+                        to={`/products/${product.id}`}
+                        className="flex-1 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs sm:text-sm font-bold py-2.5 px-3 rounded-xl shadow-md hover:shadow-orange-500/25 transition-all duration-200 active:scale-95 cursor-pointer inline-flex items-center justify-center"
+                      >
+                        عرض التفاصيل
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => openWhatsAppQuote({ product, category: product.categoryLabel })}
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white p-2.5 rounded-xl shadow-md hover:shadow-emerald-600/30 transition-all duration-200 active:scale-95 cursor-pointer inline-flex items-center justify-center shrink-0 group/wa"
+                        title={`طلب تسعير ${product.title} عبر واتساب`}
+                        aria-label={`طلب تسعير ${product.title} عبر واتساب`}
+                      >
+                        <WhatsAppIcon className="w-4 h-4 text-white group-hover/wa:scale-110 transition-transform" />
+                      </button>
+                    </div>
                   </div>
                 ))}
               </motion.div>
