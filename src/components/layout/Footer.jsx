@@ -71,7 +71,7 @@ export const Footer = () => {
         <div className="max-w-7xl mx-auto">
           {/* Top Row: Factory Logo & Name (Right) + Address & Location Pin (Left) */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 py-4">
-            
+
             {/* Factory Badge & Name */}
             <div className="flex items-center gap-3.5 sm:gap-4">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#c5a059] flex items-center justify-center bg-[#17221b] shadow-lg flex-shrink-0 p-1.5 sm:p-2">
@@ -95,66 +95,14 @@ export const Footer = () => {
           {/* Golden Horizontal Divider Line */}
           <div className="w-full h-[1px] bg-[#c5a059]/50 my-3 sm:my-4" />
 
-          {/* Technical Support & Inquiries Strip */}
-          <div className="my-2 py-2.5 px-4 rounded-xl bg-white/5 border border-[#c5a059]/30 flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm">
-            <div className="flex items-center gap-2 text-[#c5a059] font-bold">
-              <Headphones className="w-4 h-4 sm:w-5 sm:h-5 text-[#c5a059]" />
-              <span>الدعم الفني والاستفسار:</span>
-            </div>
-            
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              {/* Eng Ahmed Hesham */}
-              <div className="flex items-center gap-2">
-                <span className="text-white/85 font-medium">مهندس أحمد هشام:</span>
-                <a
-                  href="tel:01226810306"
-                  className="font-mono font-bold text-white hover:text-[#c5a059] transition-colors"
-                  dir="ltr"
-                >
-                  01226810306
-                </a>
-                <a
-                  href="https://wa.me/201226810306"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 transition-opacity shadow-sm"
-                  title="محادثة واتساب - م. أحمد هشام"
-                >
-                  <WhatsAppIcon className="w-3 h-3" />
-                </a>
-              </div>
 
-              <span className="text-white/30 hidden sm:inline">|</span>
-
-              {/* Eng Ahmed Gereish */}
-              <div className="flex items-center gap-2">
-                <span className="text-white/85 font-medium">مهندس أحمد جريش:</span>
-                <a
-                  href="tel:01018430679"
-                  className="font-mono font-bold text-white hover:text-[#c5a059] transition-colors"
-                  dir="ltr"
-                >
-                  010 18430679
-                </a>
-                <a
-                  href="https://wa.me/201018430679"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 transition-opacity shadow-sm"
-                  title="محادثة واتساب - م. أحمد جريش"
-                >
-                  <WhatsAppIcon className="w-3 h-3" />
-                </a>
-              </div>
-            </div>
-          </div>
 
           {/* Sub Divider Line */}
           <div className="w-full h-[1px] bg-white/10 my-2 sm:my-3" />
 
           {/* Bottom Row: Social Icons + Phone + Divider + WhatsApp */}
           <div className="flex flex-wrap items-center justify-between gap-4 py-2">
-            
+
             <div className="flex flex-wrap items-center gap-4 sm:gap-6">
               {/* Social Media Icons */}
               <div className="flex items-center gap-2.5">
@@ -228,6 +176,60 @@ export const Footer = () => {
           <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-slate-400 gap-2">
             <p>© {new Date().getFullYear()} {COMPANY_INFO.name}. جميع الحقوق محفوظة.</p>
             <p className="text-slate-400/80">صنع بكل فخر وفق أعلى معايير الجودة المصرية والعالمية.</p>
+          </div>
+
+          {/* Technical Support & Inquiries Strip */}
+          <div className="my-2 py-2.5 px-4 rounded-xl bg-white/5 border border-[#c5a059]/30 flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm">
+            <div className="flex items-center gap-2 text-[#c5a059] font-bold">
+              <Headphones className="w-4 h-4 sm:w-5 sm:h-5 text-[#c5a059]" />
+              <span>الدعم الفني والاستفسار:</span>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+              {/* Eng Ahmed Hesham */}
+              <div className="flex items-center gap-2">
+                <span className="text-white/85 font-medium">مهندس أحمد هشام:</span>
+                <a
+                  href="tel:01226810306"
+                  className="font-mono font-bold text-white hover:text-[#c5a059] transition-colors"
+                  dir="ltr"
+                >
+                  01226810306
+                </a>
+                <a
+                  href="https://wa.me/201226810306"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 transition-opacity shadow-sm"
+                  title="محادثة واتساب - م. أحمد هشام"
+                >
+                  <WhatsAppIcon className="w-3 h-3" />
+                </a>
+              </div>
+
+              <span className="text-white/30 hidden sm:inline">|</span>
+
+              {/* Eng Ahmed Gereish */}
+              <div className="flex items-center gap-2">
+                <span className="text-white/85 font-medium">مهندس أحمد جريش:</span>
+                <a
+                  href="tel:01018430679"
+                  className="font-mono font-bold text-white hover:text-[#c5a059] transition-colors"
+                  dir="ltr"
+                >
+                  010 18430679
+                </a>
+                <a
+                  href="https://wa.me/201018430679"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 transition-opacity shadow-sm"
+                  title="محادثة واتساب - م. أحمد جريش"
+                >
+                  <WhatsAppIcon className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
