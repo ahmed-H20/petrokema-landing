@@ -21,6 +21,9 @@ export const HOME_CATEGORIES = [
     // Default image
     image: '/media/images/دهانات داخلية.png',
     filterCategory: 'sealer',
+    hasColors: false,
+    isWhiteOnly: true,
+    colorNote: 'أبيض ناصع فقط',
     fullDescription:
       'مرحلة التأسيس هي حجر الأساس لأي عمل دهان ناجح ومستدام. منتجات السيلر والبرايمر من بتروكيما مصنعة بتركيبات كيميائية فائقة الجودة تخترق المسام الخرسانية لتعزل الرطوبة والأملاح وتمنع تسرب المياه، مما يوفر قاعدة صلبة ومثالية تضمن أقصى قوة تماسك لطبقات المعجون والدهانات اللاحقة دون تقشير أو تلف.',
     features: [
@@ -28,26 +31,6 @@ export const HOME_CATEGORIES = [
       'قوة التصاق استثنائية بالخرسانة والمحارة',
       'توفير في استهلاك الدهانات اللاحقة',
       'مقاومة فائقة للعوامل الجوية الصعبة',
-    ],
-    colors: [
-      {
-        id: 'primer-1',
-        name: 'سيلر مائي عازل 333',
-        hex: '#38bdf8',
-        img: '/media/images/دهانات داخلية.png',
-      },
-      {
-        id: 'primer-2',
-        name: 'برايمر حماية الواجهات',
-        hex: '#64748b',
-        img: '/media/images/expertise-exterior.png',
-      },
-      {
-        id: 'primer-3',
-        name: 'عزل خرساني فائق المقاومة',
-        hex: '#0284c7',
-        img: '/media/images/مواد العوازل.png',
-      },
     ],
   },
   {
@@ -59,6 +42,9 @@ export const HOME_CATEGORIES = [
     // Default image
     image: '/media/images/expertise-putty.png',
     filterCategory: 'putty',
+    hasColors: false,
+    isWhiteOnly: true,
+    colorNote: 'أبيض شاهق فقط',
     fullDescription:
       'مرحلة المعجون تمنح الجدران والأسقف استواءً تاماً وملمساً حريرياً ناعماً. معاجين بتروكيما المعمارية تتميز بقوة ملء استثنائية للفراغات والتشققات، وسهولة فائقة في الفرد والصنفرة دون ترك غبار متطاير، لتهيئة الأسطح لاستقبال الألوان بدقة ونقاء لا مثيل له.',
     features: [
@@ -66,20 +52,6 @@ export const HOME_CATEGORIES = [
       'نعومة حريرية وسهولة فائقة في الصنفرة والتشغيل',
       'بياض شاهق يوفر تغطية متجانسة لكافة ألوان الدهان',
       'تركيبة صديقة للبيئة خالية من الروائح النفاذة',
-    ],
-    colors: [
-      {
-        id: 'putty-white',
-        name: 'معجون داخلي ناعم (أبيض شاهق)',
-        hex: '#f8fafc',
-        img: '/media/images/expertise-putty.png',
-      },
-      {
-        id: 'putty-exterior',
-        name: 'معجون خارجي معزز ضد الرطوبة',
-        hex: '#cbd5e1',
-        img: '/media/images/تجهيز الأسطح والمعاجين المعمارية.png',
-      },
     ],
   },
   {
