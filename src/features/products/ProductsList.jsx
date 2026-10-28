@@ -210,16 +210,7 @@ export const ProductsList = ({ onRequestQuote }) => {
           ))}
         </div>
 
-        {/* Explore All Catalog CTA Button */}
-        <div className="text-center mt-12 sm:mt-16">
-          <Link
-            to="/products"
-            className="inline-flex items-center gap-3 px-8 py-3.5 bg-brand-navy hover:bg-brand-navy-light text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-0.5"
-          >
-            <span>استعراض كتالوج المنتجات بالكامل</span>
-            <ArrowLeft className="w-5 h-5 transform transition-transform group-hover:-translate-x-1" />
-          </Link>
-        </div>
+
 
       </div>
 
