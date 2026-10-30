@@ -117,16 +117,26 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
           <div className="relative w-full h-72 sm:h-96 md:h-[420px] bg-slate-950 overflow-hidden shrink-0 select-none">
             {/* Crossfading Background Image */}
             <AnimatePresence mode="popLayout" initial={false}>
-              <motion.img
-                key={activeColor?.img || category.image}
-                src={activeColor?.img || category.image}
-                alt={`${category.title} - ${activeColor?.name || ''}`}
+              <motion.div
+                key={activeColor?.id || activeColor?.img || category.image}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.45, ease: 'easeInOut' }}
-                className="w-full h-full object-cover object-center pointer-events-none"
-              />
+                className="w-full h-full relative"
+              >
+                <img
+                  src={activeColor?.img || category.image}
+                  alt={`${category.title} - ${activeColor?.name || ''}`}
+                  className="w-full h-full object-cover object-center pointer-events-none"
+                />
+                {activeColor?.hex && (
+                  <div
+                    className="absolute inset-0 mix-blend-color opacity-35 pointer-events-none transition-colors duration-400"
+                    style={{ backgroundColor: activeColor.hex }}
+                  />
+                )}
+              </motion.div>
             </AnimatePresence>
 
             {/* Vignette gradients for top bar readability and bottom palette isolation */}
@@ -135,39 +145,47 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
             {/* COLOR PALETTE (بلتة الألوان التفاعلية مثل البانر) */}
             {colors && colors.length > 1 && (
               <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 select-none w-auto max-w-[95%]">
-                {/* Selected Color Name Tooltip */}
-                <div className="bg-black/70 backdrop-blur-md text-white text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full shadow-md border border-white/15 flex items-center gap-2 transition-all">
+                {/* Selected Color Name Tooltip (بدون أكواد) */}
+                <div className="bg-black/75 backdrop-blur-md text-white text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full shadow-md border border-white/15 flex items-center gap-2 transition-all">
                   <span
-                    className="w-2.5 h-2.5 rounded-full border border-white/40 shadow-xs"
+                    className="w-2.5 h-2.5 rounded-full border border-white/40 shadow-xs shrink-0"
                     style={{ backgroundColor: activeColor?.hex || '#ffffff' }}
                   />
                   <span>اللون المختار: {activeColor?.name}</span>
+                  {activeColor?.nameEn && (
+                    <span className="text-white/70 text-[11px] font-normal">({activeColor.nameEn})</span>
+                  )}
                 </div>
 
                 {/* Color Circles Row */}
                 <div
-                  className="flex items-center gap-2.5 sm:gap-3.5 px-4 py-2 sm:py-2.5 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 shadow-2xl overflow-x-auto max-w-full"
+                  className="flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 shadow-2xl overflow-x-auto max-w-[94vw] sm:max-w-2xl scrollbar-none scroll-smooth"
                   role="group"
                   aria-label="بلتة ألوان التصنيف"
                 >
                   {colors.map((color) => {
                     const isActive = activeColor?.id === color.id;
+                    const isLight = color.hex?.toLowerCase() === '#f3efe5' || color.hex?.toLowerCase() === '#d6c3a5';
                     return (
                       <button
                         key={color.id}
                         type="button"
                         onClick={() => setActiveColor(color)}
                         style={{ backgroundColor: color.hex }}
-                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-300 transform cursor-pointer outline-none relative shrink-0 ${isActive
+                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-300 transform cursor-pointer outline-none relative shrink-0 border border-black/10 ${isActive
                           ? 'ring-3 ring-white ring-offset-2 ring-offset-black/60 scale-120 shadow-2xl'
                           : 'opacity-80 hover:opacity-100 hover:scale-110 shadow-md'
                           }`}
-                        title={color.name}
+                        title={`${color.name} ${color.nameEn ? `(${color.nameEn})` : ''}`}
                         aria-label={`اختيار لون ${color.name}`}
                       >
                         {isActive && (
-                          <span className="absolute inset-0 flex items-center justify-center">
-                            <Check className="w-3.5 h-3.5 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" />
+                          <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <Check
+                              className={`w-3.5 h-3.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] ${
+                                isLight ? 'text-slate-900' : 'text-white'
+                              }`}
+                            />
                           </span>
                         )}
                       </button>

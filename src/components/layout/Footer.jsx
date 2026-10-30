@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Headphones } from 'lucide-react';
+import { MapPin, Phone, Headphones, Mail } from 'lucide-react';
 import { COMPANY_INFO, SUPPORT_CONTACTS } from '../../utils/constants';
 
 /**
@@ -69,7 +69,7 @@ export const Footer = () => {
       {/* Main Dark Body */}
       <div className="bg-[#131c16] px-4 sm:px-6 lg:px-8 pb-8 pt-2 shadow-inner">
         <div className="max-w-7xl mx-auto">
-          {/* Top Row: Factory Logo & Name (Right) + Address & Location Pin (Left) */}
+          {/* Top Row: Factory Logo & Name (Right) + Address & Location Pin + Email (Left) */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 py-4">
 
             {/* Factory Badge & Name */}
@@ -82,20 +82,31 @@ export const Footer = () => {
               </h3>
             </div>
 
-            {/* Address & Pin */}
-            <div className="flex items-center gap-2 text-white/95 text-xs sm:text-sm md:text-base font-semibold text-center md:text-left">
-              <span>
-                العنوان : {COMPANY_INFO.address} .
-              </span>
-              <MapPin className="w-5 h-5 text-[#c5a059] fill-[#c5a059]/20 flex-shrink-0" />
+            {/* Address & Pin + Email */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-white/95 text-xs sm:text-sm md:text-base font-semibold text-center md:text-left">
+              <a
+                href={`mailto:${COMPANY_INFO.email || 'ptrokema@gmail.com'}`}
+                className="flex items-center gap-2 text-white/90 hover:text-[#c5a059] transition-colors"
+                title="مراسلتنا عبر البريد الإلكتروني"
+              >
+                <Mail className="w-4 h-4 text-[#c5a059]" />
+                <span dir="ltr" className="font-mono text-xs sm:text-sm">{COMPANY_INFO.email || 'ptrokema@gmail.com'}</span>
+              </a>
+
+              <span className="text-white/30 hidden sm:inline">|</span>
+
+              <div className="flex items-center gap-2">
+                <span>
+                  العنوان : {COMPANY_INFO.address} .
+                </span>
+                <MapPin className="w-5 h-5 text-[#c5a059] fill-[#c5a059]/20 flex-shrink-0" />
+              </div>
             </div>
 
           </div>
 
           {/* Golden Horizontal Divider Line */}
           <div className="w-full h-[1px] bg-[#c5a059]/50 my-3 sm:my-4" />
-
-
 
           {/* Sub Divider Line */}
           <div className="w-full h-[1px] bg-white/10 my-2 sm:my-3" />
@@ -108,11 +119,12 @@ export const Footer = () => {
               <div className="flex items-center gap-2.5">
                 {/* Facebook */}
                 <a
-                  href="https://facebook.com"
+                  href={COMPANY_INFO.facebook || "https://www.facebook.com/PetroKema?mibextid=wwXIfr"}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#1877F2] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-md"
-                  aria-label="Facebook"
+                  aria-label="صفحة فيسبوك الرسمية - Petro Kema"
+                  title="فيسبوك - Petro Kema"
                 >
                   <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -121,19 +133,30 @@ export const Footer = () => {
 
                 {/* Instagram */}
                 <a
-                  href="https://instagram.com"
+                  href={COMPANY_INFO.instagram || "https://www.instagram.com/petro_kema_paints"}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-md"
                   style={{
                     background:
                       'radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)',
                   }}
-                  aria-label="Instagram"
+                  aria-label="حساب إنستغرام الرسمي - petro_kema_paints"
+                  title="إنستغرام - petro_kema_paints"
                 >
                   <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                   </svg>
+                </a>
+
+                {/* Email */}
+                <a
+                  href={`mailto:${COMPANY_INFO.email || 'ptrokema@gmail.com'}`}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#EA4335] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-md"
+                  aria-label="البريد الإلكتروني - ptrokema@gmail.com"
+                  title="البريد الإلكتروني - ptrokema@gmail.com"
+                >
+                  <Mail className="w-5 h-5 text-white" />
                 </a>
               </div>
 
@@ -229,6 +252,9 @@ export const Footer = () => {
                   <WhatsAppIcon className="w-3 h-3" />
                 </a>
               </div>
+
+              <span className="text-white/30 hidden sm:inline">|</span>
+
               <div className="flex items-center gap-2">
                 <span className="text-white/85 font-medium">مهندس مصطفى ستيت:</span>
                 <a

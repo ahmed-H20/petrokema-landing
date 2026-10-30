@@ -1,5 +1,5 @@
 import axiosClient, { resolveImageUrl } from './axiosClient';
-import { ASSETS } from '../utils/constants';
+import { ASSETS, HERO_COLOR_PALETTES } from '../utils/constants';
 
 /**
  * 15 Products ordered strictly according to application stages (المراحل):
@@ -289,20 +289,22 @@ export const normalizeProduct = (prod) => {
         },
       ];
 
-  // Normalize colors
+  // Normalize colors (all 22 modern & classic colors, with codes removed)
   const colors = Array.isArray(prod.colors) && prod.colors.length > 0
     ? prod.colors.map((c, idx) => ({
-        id: idx + 1,
+        id: c.id || idx + 1,
         name: c.name,
-        code: c.code || '',
+        nameEn: c.nameEn || '',
+        hex: c.hex || '#FFFFFF',
+        border: c.border || '#cbd5e1',
+      }))
+    : HERO_COLOR_PALETTES.map((c, idx) => ({
+        id: c.id || idx + 1,
+        name: c.name,
+        nameEn: c.nameEn || '',
         hex: c.hex || '#FFFFFF',
         border: '#cbd5e1',
-      }))
-    : [
-        { id: 1, name: 'أبيض ناصع', hex: '#FAF9F6', border: '#E8E6DF' },
-        { id: 2, name: 'رملي دافئ', hex: '#F0DC9D', border: '#DFC987' },
-        { id: 3, name: 'رمادي مخملي', hex: '#D2D3D5', border: '#BFC1C5' },
-      ];
+      }));
 
   // Images gallery
   const mainImg = resolveImageUrl(prod.image);

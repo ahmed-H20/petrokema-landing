@@ -50,7 +50,7 @@ export const createWhatsAppQuoteMessage = ({
   if (color) {
     const colorName =
       typeof color === 'object' && color !== null
-        ? `${color.name}${color.code ? ` (${color.code})` : ''}`
+        ? `${color.name}${color.nameEn ? ` (${color.nameEn})` : ''}`
         : color;
     lines.push(`🎨 *درجة اللون:* ${colorName}`);
   }
