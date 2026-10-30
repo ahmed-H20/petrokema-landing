@@ -5,11 +5,13 @@ import { getProducts, getProductById, getCategories, normalizeProduct, MOCK_PROD
  * Fallback Categories Definition
  */
 export const PRODUCT_CATEGORIES = [
-  { id: 'all', label: 'الكل', subtitle: 'كافة دهانات ومواد بتروكيما (15 صنفاً)', count: 15 },
-  { id: 'foundation', label: 'التأسيس', subtitle: 'سيلر مقاوم 333، بريمر، بترو فورس', count: 3 },
-  { id: 'putty', label: 'المعجون', subtitle: 'معجون بترو 100، معجون أكريليك', count: 2 },
-  { id: 'paints', label: 'الدهانات', subtitle: 'بستله ايكو كيم، كيما برو 5050، بلس 700، ستار 15000، ستار 20000', count: 5 },
-  { id: 'finishing', label: 'التشطيب', subtitle: 'ورنيش، كيما كوت مط 500، ولاكيه سوبر ستار وشامبين وميتال', count: 5 },
+  { id: 'all', label: 'الكل', subtitle: 'كافة دهانات ومواد بتروكيما (15 صنفاً مرتبة حسب المراحل)', count: 15 },
+  { id: 'foundation', label: 'مرحلة التأسيس', subtitle: 'سيلر مقاوم 333', count: 1 },
+  { id: 'putty', label: 'المعجون', subtitle: 'معجون بترو 100، معجون اكريليك بترو 500', count: 2 },
+  { id: 'undercoat', label: 'البطانة', subtitle: 'بستله ايكو كيم، كيما برو 5050، بلس 700', count: 3 },
+  { id: 'finishing', label: 'تشطيب', subtitle: 'ورنيش كلير 444، ستار 15000، ستار 20000', count: 3 },
+  { id: 'lacquer', label: 'مراحل تأسيسي لاكيه', subtitle: 'كيما كوت 500، لاكيه سوبر ستار وشامبين وميتال', count: 4 },
+  { id: 'insulation', label: 'مراحل عزل', subtitle: 'بريمر بريكس، بترو فورس', count: 2 },
 ];
 
 /**
@@ -64,68 +66,16 @@ const MOCK_PRODUCTS_DATABASE = {
  * @returns {Promise<Array>} List of products
  */
 export async function fetchProductsByCategory(categoryId = 'all') {
-  try {
-    const isAll = !categoryId || categoryId === 'all';
-    
-    // Check if categoryId is a 24-character MongoDB ObjectId
-    const isMongoId = typeof categoryId === 'string' && /^[0-9a-fA-F]{24}$/.test(categoryId);
-
-    let params = {};
-    if (!isAll) {
-      params = { category: categoryId };
-    }
-
-    const serverProducts = await getProducts(params);
-
-    if (Array.isArray(serverProducts) && serverProducts.length > 0) {
-      if (isAll) return serverProducts;
-
-      // Filter by category if categoryId wasn't a direct MongoDB ID
-      if (!isMongoId) {
-        const filtered = serverProducts.filter((p) => {
-          const cat = String(p.category || '').toLowerCase();
-          const catLabel = String(p.categoryLabel || '').toLowerCase();
-          const target = String(categoryId).toLowerCase();
-          return cat.includes(target) || catLabel.includes(target);
-        });
-        if (filtered.length > 0) return filtered;
-      }
-
-      return serverProducts;
-    }
-  } catch (err) {
-    console.warn('[Products Service] Live query failed, checking fallback cache:', err.message);
-  }
-
-  // Fallback cache if server returns 0 or offline
-  const key = String(categoryId).toLowerCase();
-  if (key === 'all') {
-    return MOCK_PRODUCTS.map(normalizeProduct);
-  }
-  const filtered = MOCK_PRODUCTS.filter((p) => p.category === key);
-  return (filtered.length > 0 ? filtered : MOCK_PRODUCTS).map(normalizeProduct);
+  return getProducts({ category: categoryId });
 }
 
 /**
- * Fetch detailed product info by ID from the live server
+ * Fetch detailed product info by ID from the official catalogue
  * @param {string|number} productId
  * @returns {Promise<Object>}
  */
 export async function fetchProductDetails(productId) {
-  try {
-    const product = await getProductById(productId);
-    if (product) return product;
-  } catch (err) {
-    console.warn(`[Products Service] fetchProductDetails error for ${productId}:`, err.message);
-  }
-
-  // Fallback mock details
-  return normalizeProduct({
-    id: productId,
-    name: 'دهان كيما ستار عالي الجودة',
-    description: 'دهان بوليمري فائق الحماية والمقاومة للرطوبة، يمنح الجدران مظهراً أنيقاً يدوم طويلاً.',
-    image: '/media/products/WhatsApp_Image_2026-10-18_at_22.05.58__1_-removebg-preview 1.png',
-  });
+  return getProductById(productId);
 }
 
 export { getCategories };

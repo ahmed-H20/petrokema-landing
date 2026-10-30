@@ -22,6 +22,7 @@ import { ASSETS } from '../utils/constants';
  * Note: Prices are intentionally omitted across all products per company policy.
  */
 export const MOCK_PRODUCTS = [
+  // المرحلة 01 - مرحلة التأسيس
   {
     id: 'sealer-333',
     _id: 'sealer-333',
@@ -29,14 +30,16 @@ export const MOCK_PRODUCTS = [
     name: 'سيلر مقاوم 333',
     subtitle: 'عازل مائي ومقاوم للأملاح والنشع',
     category: 'foundation',
-    categoryLabel: 'التأسيس',
-    tag: 'المرحلة 01 - التأسيس',
+    categoryLabel: 'مرحلة التأسيس',
+    tag: 'المرحلة 01 - مرحلة التأسيس',
     description: 'سيلر مائي فائق الجودة مصنع من بوليمرات أكريليكية متطورة، يعزل الرطوبة والأملاح وسد المسامات الخرسانية لضمان أقصى التصاق للدهانات.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-18_at_22.06.00-removebg-preview 1.png',
     rating: 4.9,
     features: ['عزل تام للرطوبة والأملاح', 'اختراق عميق للمسامات الخرسانية', 'قوة التصاق عالية', 'توفير في استهلاك الدهان اللاحق'],
     isFeatured: true,
   },
+
+  // المرحلة 02 - المعجون
   {
     id: 'putty-petro-100',
     _id: 'putty-petro-100',
@@ -55,8 +58,8 @@ export const MOCK_PRODUCTS = [
   {
     id: 'acrylic-putty',
     _id: 'acrylic-putty',
-    title: 'معجون اكريليك',
-    name: 'معجون اكريليك',
+    title: 'معجون اكريليك بترو 500',
+    name: 'معجون اكريليك بترو 500',
     subtitle: 'معجون بوليمري مرن للواجهات والمساحات الدقيقة',
     category: 'putty',
     categoryLabel: 'المعجون',
@@ -67,15 +70,17 @@ export const MOCK_PRODUCTS = [
     features: ['مرونة عالية تمنع عودة الشروخ', 'مقاومة تامة للرطوبة والحرارة', 'التصاق ممتاز بالخرسانة والمحارة', 'سهل التطبيق والتسوية'],
     isFeatured: false,
   },
+
+  // المرحلة 03 - مرحلة البطانة
   {
     id: 'eco-kem-can',
     _id: 'eco-kem-can',
     title: 'بستله ايكو كيم',
     name: 'بستله ايكو كيم',
     subtitle: 'دهان بلاستيك اقتصادي عالي التغطية والبياض',
-    category: 'paints',
-    categoryLabel: 'الدهانات',
-    tag: 'المرحلة 03 - الدهانات',
+    category: 'undercoat',
+    categoryLabel: 'البطانة',
+    tag: 'المرحلة 03 - البطانة',
     description: 'دهان بلاستيك مائي صديق للبيئة، يتميز ببياض ناصع ومعدل انتشار واسع يوفر أعلى كفاءة اقتصادية وتغطية ممتازة للمشاريع الكبيرة.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-18_at_22.05.57__1_-removebg-preview 1.png',
     rating: 4.7,
@@ -88,9 +93,9 @@ export const MOCK_PRODUCTS = [
     title: 'كيما برو 5050',
     name: 'كيما برو 5050',
     subtitle: 'دهان أكريليكي نصف لامع فائق التحمل',
-    category: 'paints',
-    categoryLabel: 'الدهانات',
-    tag: 'المرحلة 03 - الدهانات',
+    category: 'undercoat',
+    categoryLabel: 'البطانة',
+    tag: 'المرحلة 03 - البطانة',
     description: 'دهان احترافي مصمم للمشاريع الراقية، يجمع بين قوة التحمل الميكانيكي وسهولة التنظيف والمظهر المخملي الفاخر مع حماية دائمة.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-18_at_22.05.57-removebg-preview 1.png',
     rating: 4.9,
@@ -103,14 +108,31 @@ export const MOCK_PRODUCTS = [
     title: 'بلس 700',
     name: 'بلس 700',
     subtitle: 'دهان بلاستيك مط فاخر عالي التغطية',
-    category: 'paints',
-    categoryLabel: 'الدهانات',
-    tag: 'المرحلة 03 - الدهانات',
+    category: 'undercoat',
+    categoryLabel: 'البطانة',
+    tag: 'المرحلة 03 - البطانة',
     description: 'دهان بلاستيك مطفي ناعم فائق البياض، يخفي عيوب الحوائط بكل كفاءة ويمنح الجدران دفئاً وأناقة هادئة متناهية الفخامة.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-18_at_22.05.58__3_-removebg-preview (1) 1.png',
     rating: 4.8,
     features: ['إخفاء تام لعيوب الحائط', 'مطفي بدون أي لمعة عاكسة', 'سهل الصيانة والتنظيف', 'بياض بلوري متجانس'],
     isFeatured: true,
+  },
+
+  // المرحلة 04 - تشطيب
+  {
+    id: 'water-varnish-color',
+    _id: 'water-varnish-color',
+    title: 'ورنيش كلير 444',
+    name: 'ورنيش كلير 444',
+    subtitle: 'ورنيش حماية مائي شفاف وملون للأسطح والأخشاب',
+    category: 'finishing',
+    categoryLabel: 'تشطيب',
+    tag: 'المرحلة 04 - تشطيب',
+    description: 'ورنيش مائي بلوري صديق للبيئة لحماية الأخشاب والحوائط والديكورات، يضفي طبقة عزل قوية ولامعة تبرز تفاصيل السطح الطبيعي.',
+    image: '/media/products/clean/WhatsApp_Image_2026-10-18_at_22.06.00-removebg-preview 1.png',
+    rating: 4.9,
+    features: ['شفافية بلورية عالية', 'حماية ضد الخدش والماء', 'سريع الجفاف وبدون رائحة', 'مقاوم للاصفرار بمرور الوقت'],
+    isFeatured: false,
   },
   {
     id: 'star-15000',
@@ -118,9 +140,9 @@ export const MOCK_PRODUCTS = [
     title: 'ستار 15000',
     name: 'ستار 15000',
     subtitle: 'دهان أكريليك مطور داخلي وخارجي',
-    category: 'paints',
-    categoryLabel: 'الدهانات',
-    tag: 'المرحلة 03 - الدهانات',
+    category: 'finishing',
+    categoryLabel: 'تشطيب',
+    tag: 'المرحلة 04 - تشطيب',
     description: 'دهان أكريليكي متطور ذو متانة عالية ومقاومة للظروف المناخية الصعبة، مصمم للجدران الداخلية والخارجية على السواء.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-18_at_22.05.59-removebg-preview 1.png',
     rating: 4.9,
@@ -133,39 +155,26 @@ export const MOCK_PRODUCTS = [
     title: 'ستار 20000',
     name: 'ستار 20000',
     subtitle: 'دهان أكريليكي فائق الجودة والنعومة الحريرية',
-    category: 'paints',
-    categoryLabel: 'الدهانات',
-    tag: 'المرحلة 03 - الدهانات',
+    category: 'finishing',
+    categoryLabel: 'تشطيب',
+    tag: 'المرحلة 04 - تشطيب',
     description: 'قمة دهانات الأكريليك بملمس حريري ومقاومة جبارة للاحتكاك والرطوبة، يمنح الجدران عمقاً وفخامة تليق بأرقى التصاميم المعمارية.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-18_at_22.05.58__2_-removebg-preview 1.png',
     rating: 5.0,
     features: ['مظهر حريري استثنائي', 'قابل للغسيل المتكرر بالمنظفات', 'مقاومة لأشعة الشمس فوق البنفسجية UV', 'تغطية فائقة للعبوة'],
     isFeatured: true,
   },
-  {
-    id: 'water-varnish-color',
-    _id: 'water-varnish-color',
-    title: 'ورنيش مائي كلر',
-    name: 'ورنيش مائي كلر',
-    subtitle: 'ورنيش حماية مائي شفاف وملون للأسطح والأخشاب',
-    category: 'finishing',
-    categoryLabel: 'التشطيب',
-    tag: 'المرحلة 04 - التشطيب',
-    description: 'ورنيش مائي بلوري صديق للبيئة لحماية الأخشاب والحوائط والديكورات، يضفي طبقة عزل قوية ولامعة تبرز تفاصيل السطح الطبيعي.',
-    image: '/media/products/clean/WhatsApp_Image_2026-10-18_at_22.06.00-removebg-preview 1.png',
-    rating: 4.9,
-    features: ['شفافية بلورية عالية', 'حماية ضد الخدش والماء', 'سريع الجفاف وبدون رائحة', 'مقاوم للاصفرار بمرور الوقت'],
-    isFeatured: false,
-  },
+
+  // المرحلة 05 - مراحل تأسيسي لاكيه
   {
     id: 'kima-coat-matte-500',
     _id: 'kima-coat-matte-500',
     title: 'كيما كوت مط 500 كل الاوزان',
     name: 'كيما كوت مط 500 كل الاوزان',
-    subtitle: 'دهان بطانة وتشطيب مطفي عالي البياض',
-    category: 'finishing',
-    categoryLabel: 'التشطيب',
-    tag: 'المرحلة 04 - التشطيب',
+    subtitle: 'دهان بطانة وتأسيس لاكيه مطفي عالي البياض',
+    category: 'lacquer',
+    categoryLabel: 'مراحل تأسيسي لاكيه',
+    tag: 'المرحلة 05 - تأسيسي لاكيه',
     description: 'دهان مطفي متعدد الاستخدامات لكافة الأوزان، يتميز بقوة التصاق فائقة وقدرة عالية على تغطية المساحات الواسعة بكفاءة واقتصادية.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-19_at_00.34.28-removebg-preview 1.png',
     rating: 4.7,
@@ -178,9 +187,9 @@ export const MOCK_PRODUCTS = [
     title: 'لاكيه سوبر ستار كل الاوزان',
     name: 'لاكيه سوبر ستار كل الاوزان',
     subtitle: 'طلاء سنتيتك فاخر لامع ونصف لامع للأخشاب والمعادن',
-    category: 'finishing',
-    categoryLabel: 'التشطيب',
-    tag: 'المرحلة 04 - التشطيب',
+    category: 'lacquer',
+    categoryLabel: 'مراحل تأسيسي لاكيه',
+    tag: 'المرحلة 05 - تأسيسي لاكيه',
     description: 'دهان لاكيه زيتي عالي الجودة يتميز بصلابة فائقة ولمعان زجاجي مذهل لحماية الأبواب والمطابخ والحديد من التآكل والعوامل الجوية.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-20_at_15.04.31-removebg-preview 1.png',
     rating: 4.9,
@@ -193,9 +202,9 @@ export const MOCK_PRODUCTS = [
     title: 'لاكيه شامبين',
     name: 'لاكيه شامبين',
     subtitle: 'طلاء لاكيه ديكوري بدرجة الشامبين الملكية الفاخرة',
-    category: 'finishing',
-    categoryLabel: 'التشطيب',
-    tag: 'المرحلة 04 - التشطيب',
+    category: 'lacquer',
+    categoryLabel: 'مراحل تأسيسي لاكيه',
+    tag: 'المرحلة 05 - تأسيسي لاكيه',
     description: 'طلاء ديكوري متفرد يمنح المشغولات الخشبية والمعدنية والأبواب لون الشامبين الهادئ والمترف مع بريق مخملي جذاب يناسب أحدث التصاميم.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-20_at_15.04.58-removebg-preview 1.png',
     rating: 4.9,
@@ -208,24 +217,26 @@ export const MOCK_PRODUCTS = [
     title: 'لاكيه ميتال',
     name: 'لاكيه ميتال',
     subtitle: 'دهان ميتالك معدني براق للمسات الديكورية العصرية',
-    category: 'finishing',
-    categoryLabel: 'التشطيب',
-    tag: 'المرحلة 04 - التشطيب',
+    category: 'lacquer',
+    categoryLabel: 'مراحل تأسيسي لاكيه',
+    tag: 'المرحلة 05 - تأسيسي لاكيه',
     description: 'دهان ميتالك بتأثير معدني بلوري عالي الانعكاس، يضفي طابعاً مستقبلياً فخماً على الأثاث والديكورات والأبواب والمطابخ.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-20_at_15.06.01-removebg-preview 1.png',
     rating: 4.8,
     features: ['تأثير ميتالك معدني ساحر', 'مقاوم للرطوبة والاحتكاك', 'لمعان دائم لا يخفت', 'متانة ممتازة للأخشاب والمعادن'],
     isFeatured: false,
   },
+
+  // المرحلة 06 - مراحل عزل (غزل)
   {
     id: 'primer-all-sizes',
     _id: 'primer-all-sizes',
-    title: 'بريمر كل الاوزان',
-    name: 'بريمر كل الاوزان',
-    subtitle: 'برايمر تأسيس وحماية خرسانية لكافة الأوزان',
-    category: 'foundation',
-    categoryLabel: 'التأسيس',
-    tag: 'المرحلة 01 - التأسيس',
+    title: 'بريمر بريكس كل الاوزان',
+    name: 'بريمر بريكس كل الاوزان',
+    subtitle: 'برايمر عزل وتأسيس وحماية خرسانية لكافة الأوزان',
+    category: 'insulation',
+    categoryLabel: 'مراحل عزل',
+    tag: 'المرحلة 06 - عزل',
     description: 'طبقة التأسيس الأولى لحماية الواجهات والمباني من الرطوبة والعوامل المناخية القاسية، متوفر بكافة العبوات والأوزان للمشاريع.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-19_at_00.35.57-removebg-preview 1.png',
     rating: 4.8,
@@ -238,9 +249,9 @@ export const MOCK_PRODUCTS = [
     title: 'بترو فورس',
     name: 'بترو فورس',
     subtitle: 'مادة حماية وعزل عالية القوة والمتانة',
-    category: 'foundation',
-    categoryLabel: 'التأسيس',
-    tag: 'المرحلة 01 - التأسيس',
+    category: 'insulation',
+    categoryLabel: 'مراحل عزل',
+    tag: 'المرحلة 06 - عزل',
     description: 'مركب عزل وحماية متطور يتمتع بقوة تماسك خارقة، مصمم لحماية الأسطح المعرضة لظروف بيئية قاسية ومنع تغلغل الرطوبة ومياه الأمطار.',
     image: '/media/products/clean/WhatsApp_Image_2026-10-18_at_22.05.58__1_-removebg-preview 1.png',
     rating: 5.0,
@@ -321,6 +332,10 @@ export const normalizeProduct = (prod) => {
     ? prod.features
     : ['تغطية فائقة', 'مقاوم للعوامل الجوية', 'ألوان تدوم طويلاً', 'صديق للبيئة'];
 
+  const categoryCode = prod.category?.code || (typeof prod.category === 'string' ? prod.category : '');
+  const categoryId = prod.category?._id ? String(prod.category._id) : (typeof prod.category === 'string' ? prod.category : '');
+  const categoryLabel = prod.categoryLabel || prod.category?.name || 'دهانات';
+
   return {
     id: String(prodId),
     _id: String(prodId),
@@ -328,9 +343,11 @@ export const normalizeProduct = (prod) => {
     name: prodTitle,
     subTitleEn: prod.code || '',
     fullTitle: prodTitle,
-    subtitle: prod.subtitle || prod.category?.name || 'دهانات معمارية فاخرة',
-    category: prod.category?._id || prod.category?.code || prod.category || 'all',
-    categoryLabel: prod.categoryLabel || prod.category?.name || 'دهانات',
+    subtitle: prod.subtitle || categoryLabel || 'دهانات معمارية فاخرة',
+    category: categoryCode || categoryId || 'all',
+    categoryCode: categoryCode || 'all',
+    categoryId: categoryId,
+    categoryLabel: categoryLabel,
     tag: prod.tag || prod.statusBadge || 'مطابق للمواصفات',
     badge: prod.tag || prod.statusBadge || 'مطابق للمواصفات',
     description:
@@ -356,41 +373,46 @@ export const normalizeProduct = (prod) => {
 };
 
 /**
- * Fetch all categories live from backend or defaults
+ * Fetch all categories live from backend server API (with offline fallback)
  * @returns {Promise<Array>}
  */
 export const getCategories = async () => {
   try {
     const res = await axiosClient.get('/categories');
-    const list = Array.isArray(res) ? res : (res?.data || []);
-    if (Array.isArray(list) && list.length > 0) {
-      return list.map((c) => ({
-        id: c._id,
-        _id: c._id,
-        code: c.code || c._id,
+    const raw = res?.data || res;
+    const list = Array.isArray(raw?.data) ? raw.data : Array.isArray(raw) ? raw : null;
+    if (list && list.length > 0) {
+      const mapped = list.map((c) => ({
+        id: c.code || String(c._id),
+        _id: String(c._id),
+        code: c.code,
         label: c.name,
         name: c.name,
-        nameEn: c.nameEn || '',
-        subtitle: c.description || (c.nameEn ? c.nameEn : ''),
-        count: c.productsCount || 0,
+        subtitle: c.description || '',
       }));
+      return [
+        { id: 'all', label: 'الكل', subtitle: 'كافة دهانات ومواد بتروكيما (15 صنفاً مرتبة حسب المراحل)' },
+        ...mapped,
+      ];
     }
-  } catch (error) {
-    console.warn('[Categories API] Backend categories unavailable, using defaults:', error.message);
+  } catch (err) {
+    console.warn('[Products API] Failed to fetch live categories from server:', err.message);
   }
 
+  // Standard 6 stages fallback
   return [
     { id: 'all', label: 'الكل', subtitle: 'كافة دهانات ومواد بتروكيما (15 صنفاً مرتبة حسب المراحل)', count: MOCK_PRODUCTS.length },
-    { id: 'foundation', label: 'التأسيس', subtitle: 'سيلر مقاوم 333، بريمر، بترو فورس', count: 3 },
-    { id: 'putty', label: 'المعجون', subtitle: 'معجون بترو 100، معجون أكريليك', count: 2 },
-    { id: 'paints', label: 'الدهانات', subtitle: 'بستله ايكو كيم، كيما برو 5050، بلس 700، ستار 15000، ستار 20000', count: 5 },
-    { id: 'finishing', label: 'التشطيب', subtitle: 'ورنيش، كيما كوت مط 500، ولاكيه سوبر ستار وشامبين وميتال', count: 5 },
+    { id: 'foundation', label: 'مرحلة التأسيس', subtitle: 'سيلر مقاوم 333', count: 1 },
+    { id: 'putty', label: 'المعجون', subtitle: 'معجون بترو 100، معجون اكريليك بترو 500', count: 2 },
+    { id: 'undercoat', label: 'البطانة', subtitle: 'بستله ايكو كيم، كيما برو 5050، بلس 700', count: 3 },
+    { id: 'finishing', label: 'تشطيب', subtitle: 'ورنيش كلير 444، ستار 15000، ستار 20000', count: 3 },
+    { id: 'lacquer', label: 'مراحل تأسيسي لاكيه', subtitle: 'كيما كوت 500، لاكيه سوبر ستار وشامبين وميتال', count: 4 },
+    { id: 'insulation', label: 'مراحل عزل', subtitle: 'بريمر بريكس، بترو فورس', count: 2 },
   ];
 };
 
 /**
- * Fetch all products with optional filtering by category or query
- * (Preserves exact stages ordering)
+ * Fetch all products live from backend server API (with offline fallback)
  * @param {Object} params
  * @param {string} [params.category]
  * @param {string} [params.search]
@@ -398,29 +420,30 @@ export const getCategories = async () => {
  */
 export const getProducts = async (params = {}) => {
   try {
-    const queryParams = {};
-    if (params.category && params.category !== 'all') {
-      queryParams.category = params.category;
+    const query = new URLSearchParams({ limit: '100', sort: 'sortOrder' });
+    if (params.search) query.set('search', params.search);
+    const res = await axiosClient.get(`/products?${query.toString()}`);
+    const raw = res?.data || res;
+    const list = Array.isArray(raw?.data) ? raw.data : Array.isArray(raw) ? raw : null;
+    if (list && list.length > 0) {
+      let results = list.map(normalizeProduct);
+      if (params.category && params.category !== 'all') {
+        const catFilter = String(params.category).toLowerCase();
+        results = results.filter(
+          (p) =>
+            p.category === catFilter ||
+            p.categoryCode === catFilter ||
+            p.categoryId === catFilter ||
+            p.categoryLabel === params.category
+        );
+      }
+      return results;
     }
-    if (params.search) {
-      queryParams.search = params.search;
-    }
-
-    const res = await axiosClient.get('/products', { params: queryParams });
-    const rawList = Array.isArray(res) ? res : (res?.data || []);
-
-    if (Array.isArray(rawList) && rawList.length > 0) {
-      return rawList.map(normalizeProduct);
-    }
-
-    if (params.category && params.category !== 'all') {
-      // Continue to local filtered catalogue
-    }
-  } catch (error) {
-    console.warn('[Products API] Server error, falling back to local catalog:', error.message);
+  } catch (err) {
+    console.warn('[Products API] Live products fetch failed, using local catalog fallback:', err.message);
   }
 
-  // Fallback to local catalog preserving exact sequential order
+  // Fallback to local catalog
   let results = [...MOCK_PRODUCTS].map(normalizeProduct);
   if (params.category && params.category !== 'all') {
     results = results.filter((p) => p.category === params.category);
@@ -446,14 +469,15 @@ export const getProductById = async (id) => {
   try {
     const res = await axiosClient.get(`/products/${id}`);
     const raw = res?.data || res;
-    if (raw && (raw._id || raw.name)) {
-      return normalizeProduct(raw);
+    const item = raw?.data || raw;
+    if (item && (item._id || item.name)) {
+      return normalizeProduct(item);
     }
   } catch (error) {
     console.warn(`[Products API] getProductById error for ${id}:`, error.message);
   }
 
-  const found = MOCK_PRODUCTS.find((p) => String(p.id) === String(id) || String(p._id) === String(id));
+  const found = MOCK_PRODUCTS.find((p) => String(p.id) === String(id) || String(p._id) === String(id) || p.code === id);
   if (found) {
     return normalizeProduct(found);
   }
