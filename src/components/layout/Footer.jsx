@@ -229,6 +229,25 @@ export const Footer = () => {
                   <WhatsAppIcon className="w-3 h-3" />
                 </a>
               </div>
+              <div className="flex items-center gap-2">
+                <span className="text-white/85 font-medium">مهندس مصطفى ستيت:</span>
+                <a
+                  href="tel:01501404069"
+                  className="font-mono font-bold text-white hover:text-[#c5a059] transition-colors"
+                  dir="ltr"
+                >
+                  015 0140 4069
+                </a>
+                <a
+                  href="https://wa.me/201501404069"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 transition-opacity shadow-sm"
+                  title="محادثة واتساب - م. مصطفى ستيت"
+                >
+                  <WhatsAppIcon className="w-3 h-3" />
+                </a>
+              </div>
             </div>
           </div>
 
