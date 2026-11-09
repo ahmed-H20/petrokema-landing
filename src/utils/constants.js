@@ -55,7 +55,6 @@ export const SOCIAL_LINKS = [
 export const HERO_COLOR_PALETTES = [
   // ترتيب موحّد: المحايدات من الفاتح للغامق، ثم الألوان بحسب الدرجة (أحمر → برتقالي → أصفر → أخضر → أزرق → وردي)، وداخل كل درجة من الفاتح للغامق
   // الألوان ذات الخاصية baked صورها تحمل اللون جاهزاً فلا تُضاف عليها طبقة تلوين
-  { id: 'off-white', name: 'أوف وايت', nameEn: 'Off White', hex: '#F3EFE5', bgClass: 'bg-[#F3EFE5]', img: '/media/images/hero/hero-wall-gray.jpg' },
   { id: 'classic-white', name: 'كلاسيك وايت', nameEn: 'Classic White', code: 'S 0500-N', hex: '#E6DDD4', bgClass: 'bg-[#E6DDD4]', img: '/media/images/hero/hero-wall-classic-white.webp', baked: true },
   { id: 'ivory', name: 'آيفوري', nameEn: 'Ivory', code: 'S 0505-Y10R', hex: '#EADCCE', bgClass: 'bg-[#EADCCE]', img: '/media/images/hero/hero-wall-ivory.webp', baked: true },
   { id: 'sky-light', name: 'سكاي لايت', nameEn: 'Sky Light', code: '1624', hex: '#E2D9D0', bgClass: 'bg-[#E2D9D0]', img: '/media/images/hero/hero-wall-sky-light.webp', baked: true },
@@ -64,7 +63,6 @@ export const HERO_COLOR_PALETTES = [
   { id: 'vanilla-latte', name: 'فانيلا لاتيه', nameEn: 'Vanilla Latte', code: 'S 2010-Y30R', hex: '#DECFBD', bgClass: 'bg-[#DECFBD]', img: '/media/images/hero/hero-wall-vanilla-latte.webp', baked: true },
   { id: 'limestone', name: 'لايمستون', nameEn: 'Limestone', code: '10341', hex: '#D9C9BC', bgClass: 'bg-[#D9C9BC]', img: '/media/images/hero/hero-wall-limestone.webp', baked: true },
   { id: 'sand', name: 'ساند', nameEn: 'Sand', code: 'S 2010-Y20R', hex: '#D5C7BD', bgClass: 'bg-[#D5C7BD]', img: '/media/images/hero/hero-wall-sand.webp', baked: true },
-  { id: 'beige', name: 'بيج', nameEn: 'Beige', hex: '#D6C3A5', bgClass: 'bg-[#D6C3A5]', img: '/media/images/hero/hero-wall-camel.jpg' },
   { id: 'cashmere', name: 'كشمير', nameEn: 'Cashmere', code: 'S 2005-Y20R', hex: '#B89B9D', bgClass: 'bg-[#B89B9D]', img: '/media/images/hero/hero-wall-camel.jpg' },
   { id: 'oxford-river', name: 'أكسفورد ريفر', nameEn: 'Oxford River', code: 'S 6502-B', hex: '#A69897', bgClass: 'bg-[#A69897]', img: '/media/images/hero/hero-wall-oxford-river.webp', baked: true },
   { id: 'mauve', name: 'موفي', nameEn: 'Mauve', code: 'S 3020-R50B', hex: '#A49395', bgClass: 'bg-[#A49395]', img: '/media/images/hero/hero-wall-mauve.webp', baked: true },
@@ -87,7 +85,7 @@ export const HERO_COLOR_PALETTES = [
   { id: 'pink', name: 'بينك', nameEn: 'Pink', code: 'S 1030-R20B', hex: '#C54A79', bgClass: 'bg-[#C54A79]', img: '/media/images/hero/hero-wall-pink.webp', baked: true },
 ];
 
-export const DEFAULT_HERO_COLOR = HERO_COLOR_PALETTES.find((c) => c.id === 'off-white');
+export const DEFAULT_HERO_COLOR = HERO_COLOR_PALETTES.find((c) => c.id === 'classic-white');
 
 export const PAINT_COLORS = HERO_COLOR_PALETTES;
 

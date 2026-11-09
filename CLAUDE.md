@@ -12,7 +12,7 @@ Alias `@` → `src/`. Dev server port 3000. Scripts: `npm run dev | build | prev
 - `src/features/{hero,products,about,contact}/` — feature components + `hooks/`.
 - `src/components/layout/` (Navbar, Footer, MainLayout) · `src/components/ui/` (Button, Badge, Input, ScrollReveal, FloatingWhatsApp, WhatsAppIcon, LoadingScreen).
 - `src/api/` — axios client + services (see below). `src/hooks/useFetch.js` generic fetch hook.
-- `src/utils/constants.js` — `COMPANY_INFO`, `SUPPORT_CONTACTS`, `NAV_LINKS`, `SOCIAL_LINKS`, `HERO_COLOR_PALETTES` (36 shades in one rainbow-ordered run: neutrals light→dark, then hues red→blue→pink; 15 of them have `baked: true` baked-in wall images in `public/media/images/hero/*.webp`, lazy-loaded via `utils/preloadImage.js`, no tint overlay). Single source for contact/social data.
+- `src/utils/constants.js` — `COMPANY_INFO`, `SUPPORT_CONTACTS`, `NAV_LINKS`, `SOCIAL_LINKS`, `HERO_COLOR_PALETTES` (28 shades in one rainbow-ordered run: neutrals light→dark, then hues red→blue→pink; 15 of them have `baked: true` baked-in wall images in `public/media/images/hero/*.webp`, lazy-loaded via `utils/preloadImage.js`, no tint overlay). Single source for contact/social data.
 - `src/utils/whatsapp.js` — builds Arabic quote messages + wa.me URLs. Quotes go through WhatsApp, not prices.
 - `scripts/generate-wall-variants.cjs` — one-off sharp script for hero wall images.
 
