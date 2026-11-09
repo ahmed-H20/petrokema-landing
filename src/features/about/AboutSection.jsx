@@ -60,21 +60,21 @@ export const AboutSection = ({ onLearnMore }) => {
             </p>
 
             {/* 3 Key Value Cards (Matches screenshot) */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4">
               {HIGHLIGHTS.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={idx}
-                    className={`p-4 rounded-2xl border ${item.borderColor} ${item.bgColor} flex flex-col items-center sm:items-start text-center sm:text-right transition-transform hover:-translate-y-1 shadow-sm`}
+                    className={`p-2 sm:p-4 rounded-xl sm:rounded-2xl border ${item.borderColor} ${item.bgColor} flex flex-col items-center sm:items-start text-center sm:text-right transition-transform hover:-translate-y-1 shadow-sm`}
                   >
-                    <div className={`p-2.5 rounded-xl bg-white shadow-sm mb-3 ${item.color}`}>
-                      <Icon className="w-6 h-6" />
+                    <div className={`p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl bg-white shadow-sm mb-1.5 sm:mb-3 ${item.color}`}>
+                      <Icon className="w-4 h-4 sm:w-6 sm:h-6" />
                     </div>
-                    <h4 className="text-base font-bold text-slate-900">
+                    <h4 className="text-[11px] leading-tight sm:leading-normal sm:text-base font-bold text-slate-900">
                       {item.title}
                     </h4>
-                    <p className="text-xs text-slate-500 font-medium mt-0.5">
+                    <p className="text-[9px] sm:text-xs text-slate-500 font-medium mt-0.5">
                       {item.subtitle}
                     </p>
                   </div>

@@ -224,7 +224,7 @@ export const ProductsList = ({ onRequestQuote }) => {
         </div>
 
         {/* 6 Category Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6">
           {HOME_CATEGORIES.map((category) => (
             <CategoryCard
               key={category.id}

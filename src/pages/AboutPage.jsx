@@ -60,7 +60,7 @@ export const AboutPage = () => {
 
   // Icon mapping helper for WhyUs section
   const renderWhyUsIcon = (iconName) => {
-    const iconProps = { className: 'w-6 h-6 text-brand-orange' };
+    const iconProps = { className: 'w-4 h-4 sm:w-6 sm:h-6 text-brand-orange' };
     switch (iconName) {
       case 'ShieldCheck':
         return <ShieldCheck {...iconProps} />;
@@ -363,43 +363,43 @@ export const AboutPage = () => {
           </div>
 
           {/* 4-Column Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-8">
             {expertise.map((item, idx) => (
               <ScrollReveal key={item.id} yOffset={30} delay={idx * 0.1}>
-                <div className="h-full rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+                <div className="h-full rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between overflow-hidden group">
                   
                   <div>
                     {/* Card Image with Badge */}
-                    <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-100">
+                    <div className="relative h-24 sm:h-48 overflow-hidden bg-slate-100">
                       <img
                         src={item.image}
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                      <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-brand-navy/90 text-white backdrop-blur-md">
+                      <span className="absolute top-1.5 right-1.5 sm:top-3 sm:right-3 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-xs font-bold bg-brand-navy/90 text-white backdrop-blur-md">
                         {item.category}
                       </span>
                     </div>
 
                     {/* Content */}
-                    <div className="p-5 sm:p-6 text-right">
-                      <h3 className="text-base sm:text-lg font-black text-brand-navy mb-2 group-hover:text-brand-orange transition-colors">
+                    <div className="p-2.5 sm:p-6 text-right">
+                      <h3 className="text-[13px] leading-snug sm:leading-normal sm:text-lg font-black text-brand-navy mb-1 sm:mb-2 group-hover:text-brand-orange transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-medium">
+                      <p className="text-[10px] sm:text-sm text-slate-500 leading-snug sm:leading-relaxed font-medium">
                         {item.description}
                       </p>
                     </div>
                   </div>
 
                   {/* Card Footer Link */}
-                  <div className="p-5 sm:p-6 pt-0 text-right">
+                  <div className="p-2.5 sm:p-6 pt-0 sm:pt-0 text-right">
                     <Link
                       to="/products"
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-orange hover:text-brand-orange-hover transition-colors"
+                      className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-sm font-bold text-brand-orange hover:text-brand-orange-hover transition-colors"
                     >
                       <span>استكشف المنتجات</span>
-                      <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+                      <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover:-translate-x-1" />
                     </Link>
                   </div>
 
@@ -434,23 +434,23 @@ export const AboutPage = () => {
           </div>
 
           {/* 4-Column Grid of Small Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-8">
             {whyUs.map((feat, idx) => (
               <ScrollReveal key={feat.id} yOffset={30} delay={idx * 0.1}>
-                <div className="h-full p-6 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-card-hover transition-all duration-300 text-right group flex flex-col justify-between">
+                <div className="h-full p-3 sm:p-8 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-card-hover transition-all duration-300 text-right group flex flex-col justify-between">
                   <div>
                     {/* Orange Icon Container */}
-                    <div className="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-orange-500 transition-all duration-300">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-2xl bg-orange-50 flex items-center justify-center mb-2 sm:mb-5 group-hover:scale-110 group-hover:bg-orange-500 transition-all duration-300">
                       <span className="group-hover:brightness-0 group-hover:invert transition-all">
                         {renderWhyUsIcon(feat.icon)}
                       </span>
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-black text-brand-navy mb-2">
+                    <h3 className="text-[13px] leading-snug sm:leading-normal sm:text-lg font-black text-brand-navy mb-1 sm:mb-2">
                       {feat.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    <p className="text-[10px] sm:text-sm text-slate-600 font-medium leading-snug sm:leading-relaxed">
                       {feat.description}
                     </p>
                   </div>

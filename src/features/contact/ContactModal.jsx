@@ -14,16 +14,21 @@ export const ContactModal = ({ isOpen, onClose, product = null }) => {
     message: '',
   });
 
+  // Only a product that really has a name counts (callers may pass a click event or null)
+  const productName =
+    [product?.title, product?.name].find((v) => typeof v === 'string' && v.trim()) || '';
+  const namedProduct = productName ? product : null;
+
   // Pre-fill message and category if a specific product was selected
   React.useEffect(() => {
-    if (product) {
+    if (productName) {
       setFormData((prev) => ({
         ...prev,
-        category: product.categoryLabel || product.title || 'دهانات',
-        message: `أرغب في طلب عرض أسعار واستشارة فنية لمنتج: ${product.title || product.name}`,
+        category: product.categoryLabel || productName || 'دهانات',
+        message: `أرغب في طلب عرض أسعار واستشارة فنية لمنتج: ${productName}`,
       }));
     }
-  }, [product]);
+  }, [product, productName]);
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -48,8 +53,8 @@ export const ContactModal = ({ isOpen, onClose, product = null }) => {
     try {
       await submitContactForm({
         ...formData,
-        productName: product?.title || product?.name || '',
-        productId: product?.id || product?._id || '',
+        productName,
+        productId: namedProduct?.id || namedProduct?._id || '',
       });
       setSuccess(true);
       setTimeout(() => {
@@ -65,13 +70,13 @@ export const ContactModal = ({ isOpen, onClose, product = null }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in-rtl">
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 sm:p-8 text-right overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-5 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in-rtl">
+      <div className="relative w-full max-w-[22rem] sm:max-w-lg max-h-[72vh] sm:max-h-none overflow-y-auto sm:overflow-hidden bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-8 text-right">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 left-5 p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+          className="absolute top-3 left-3 sm:top-5 sm:left-5 p-1.5 sm:p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           aria-label="إغلاق"
         >
           <X className="w-5 h-5" />
@@ -87,20 +92,20 @@ export const ContactModal = ({ isOpen, onClose, product = null }) => {
           </div>
         ) : (
           <div>
-            <div className="mb-6">
-              <span className="text-xs font-bold text-brand-orange uppercase tracking-wider">
+            <div className="mb-3 sm:mb-6 pt-1 sm:pt-0">
+              <span className="text-[11px] sm:text-xs font-bold text-brand-orange uppercase tracking-wider">
                 استشارة وتواصل مجاني
               </span>
-              <h2 className="text-2xl font-extrabold text-brand-navy mt-1">
+              <h2 className="text-lg sm:text-2xl font-extrabold text-brand-navy mt-0.5 sm:mt-1 pl-8 sm:pl-0">
                 تواصل مع مستشاري بتروكيما
               </h2>
-              <p className="text-sm text-slate-500 mt-1">
+              <p className="text-xs sm:text-sm text-slate-500 mt-1">
                 اترك بياناتك وسنساعدك في اختيار نوع الدهان والكميات المناسبة لمشروعك.
               </p>
             </div>
 
             {/* Quick WhatsApp Fast Track Card */}
-            <div className="mb-6 p-3.5 sm:p-4 rounded-2xl bg-emerald-50/80 border border-emerald-200/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="mb-3 sm:mb-6 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-emerald-50/80 border border-emerald-200/80 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="flex items-center gap-3 text-right">
                 <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-md">
                   <WhatsAppIcon className="w-5 h-5 text-white" />
@@ -118,7 +123,7 @@ export const ContactModal = ({ isOpen, onClose, product = null }) => {
                 type="button"
                 onClick={() => {
                   openWhatsAppQuote({
-                    product,
+                    product: namedProduct,
                     category: formData.category,
                     note: formData.message || 'طلب استشارة وعرض أسعار',
                   });
@@ -142,7 +147,7 @@ export const ContactModal = ({ isOpen, onClose, product = null }) => {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 [&_label]:text-xs [&_label]:mb-1 sm:[&_label]:text-sm sm:[&_label]:mb-1.5 [&_input]:py-2 sm:[&_input]:py-2.5 [&_select]:py-2 sm:[&_select]:py-2.5">
               <Input
                 label="الاسم بالكامل *"
                 name="name"
@@ -153,7 +158,7 @@ export const ContactModal = ({ isOpen, onClose, product = null }) => {
                 required
               />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <Input
                   label="رقم الهاتف / واتساب *"
                   name="phone"
@@ -199,7 +204,7 @@ export const ContactModal = ({ isOpen, onClose, product = null }) => {
                 </label>
                 <textarea
                   name="message"
-                  rows="3"
+                  rows="2"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="اكتب أي استفسار أو مساحة المكان المطلوب دهانه..."

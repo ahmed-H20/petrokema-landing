@@ -13,7 +13,7 @@ export const FloatingWhatsApp = () => {
 
   return (
     <div
-      className="fixed bottom-6 left-6 z-40 flex items-center gap-3 select-none"
+      className="fixed bottom-[5.5rem] sm:bottom-6 left-6 z-40 flex items-center gap-3 select-none"
       dir="rtl"
     >
       {/* Tooltip speech bubble */}

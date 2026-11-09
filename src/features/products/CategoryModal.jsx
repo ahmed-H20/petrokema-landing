@@ -72,7 +72,7 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
   return (
     <div
       dir="rtl"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-6 bg-slate-950/80 backdrop-blur-md overflow-y-auto animate-fade-in-rtl"
+      className="fixed inset-0 z-50 flex items-center justify-center p-5 sm:p-5 md:p-6 bg-slate-950/80 backdrop-blur-md overflow-y-auto animate-fade-in-rtl"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -82,27 +82,27 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.94, y: 15 }}
         transition={{ duration: 0.28, ease: 'easeOut' }}
-        className={`relative w-full ${hasColors ? 'max-w-4xl' : 'max-w-2xl'
-          } bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col my-auto max-h-[92vh]`}
+        className={`relative w-full max-w-[22rem] ${hasColors ? 'sm:max-w-4xl' : 'sm:max-w-2xl'
+          } bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col my-auto max-h-[72vh] sm:max-h-[92vh]`}
       >
         {/* =========================================================================
             1. TOP BAR OVERLAYS (ONLY SHOWN OVER IMAGE WHEN hasColors IS TRUE)
             ========================================================================= */}
         {hasColors && (
           <>
-            <div className="absolute top-4 left-4 z-30">
+            <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-30">
               <button
                 type="button"
                 onClick={onClose}
-                className="w-10 h-10 rounded-full bg-black/45 hover:bg-black/75 text-white backdrop-blur-md transition-all duration-200 flex items-center justify-center cursor-pointer shadow-lg active:scale-95 border border-white/10"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/45 hover:bg-black/75 text-white backdrop-blur-md transition-all duration-200 flex items-center justify-center cursor-pointer shadow-lg active:scale-95 border border-white/10"
                 aria-label="إغلاق النافذة"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="absolute top-4 right-4 z-30 pointer-events-none">
-              <div className="bg-black/45 backdrop-blur-md text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-lg border border-white/15 flex items-center gap-2">
+            <div className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 z-30 pointer-events-none">
+              <div className="bg-black/45 backdrop-blur-md text-white text-[11px] sm:text-xs font-black px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full shadow-lg border border-white/15 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
                 <span>المرحلة {category.number}</span>
               </div>
@@ -114,7 +114,7 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
             2. INTERACTIVE IMAGE CONTAINER WITH COLOR PALETTE (ONLY WHEN hasColors)
             ========================================================================= */}
         {hasColors && (
-          <div className="relative w-full h-72 sm:h-96 md:h-[420px] bg-slate-950 overflow-hidden shrink-0 select-none">
+          <div className="relative w-full h-44 sm:h-96 md:h-[420px] bg-slate-950 overflow-hidden shrink-0 select-none">
             {/* Crossfading Background Image */}
             <AnimatePresence mode="popLayout" initial={false}>
               <motion.div
@@ -144,7 +144,7 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
 
             {/* COLOR PALETTE (بلتة الألوان التفاعلية مثل البانر) */}
             {colors && colors.length > 1 && (
-              <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 select-none w-auto max-w-[95%]">
+              <div className="absolute bottom-2.5 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 select-none w-auto max-w-[95%]">
                 {/* Selected Color Name Tooltip (بدون أكواد) */}
                 <div className="bg-black/75 backdrop-blur-md text-white text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full shadow-md border border-white/15 flex items-center gap-2 transition-all">
                   <span
@@ -201,9 +201,9 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
             HEADER FOR CATEGORIES WITHOUT COLORS (التأسيس والمعجون: لون أبيض فقط وبدون صورة)
             ========================================================================= */}
         {!hasColors && (
-          <div className="p-6 sm:p-7 pb-4 border-b border-slate-100 bg-gradient-to-b from-slate-50/80 to-white relative text-right">
+          <div className="p-4 sm:p-7 pb-3 sm:pb-4 border-b border-slate-100 bg-gradient-to-b from-slate-50/80 to-white relative text-right">
             {/* Top row with Stage badge & Close button */}
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-2.5 sm:mb-4">
               <div className="bg-orange-50 border border-brand-orange/20 text-brand-orange text-xs font-black px-3.5 py-1.5 rounded-full shadow-2xs flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
                 <span>المرحلة {category.number}</span>
@@ -212,7 +212,7 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
               <button
                 type="button"
                 onClick={onClose}
-                className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors flex items-center justify-center cursor-pointer shadow-xs active:scale-95"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors flex items-center justify-center cursor-pointer shadow-xs active:scale-95"
                 aria-label="إغلاق النافذة"
               >
                 <X className="w-5 h-5" />
@@ -222,12 +222,12 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
             {/* Title & Subtitle */}
             <div className="flex items-center gap-2.5 mb-1.5">
               <span className="w-1.5 h-6 sm:h-7 bg-brand-orange rounded-full inline-block shrink-0 shadow-sm" />
-              <h2 className="text-2xl sm:text-3xl font-black text-brand-navy">
+              <h2 className="text-xl sm:text-3xl font-black text-brand-navy">
                 {category.title}
               </h2>
             </div>
 
-            <p className="text-xs sm:text-sm font-semibold text-slate-500 leading-relaxed mb-4">
+            <p className="text-xs sm:text-sm font-semibold text-slate-500 leading-relaxed mb-1 sm:mb-4">
               {category.subtitle}
             </p>
 
@@ -237,14 +237,14 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
         {/* =========================================================================
             3. CATEGORY CONTENT & DESCRIPTION (وصف التصنيف)
             ========================================================================= */}
-        <div className="p-6 sm:p-8 text-right bg-white overflow-y-auto space-y-5">
+        <div className="p-4 sm:p-8 text-right bg-white overflow-y-auto space-y-3 sm:space-y-5">
           {/* Header Title with Orange Bar (Shown ONLY in hasColors mode since !hasColors has it in dedicated header) */}
           {hasColors && (
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-100 pb-4">
               <div>
                 <div className="flex items-center gap-2.5 mb-1">
                   <span className="w-1.5 h-6 bg-brand-orange rounded-full inline-block shrink-0 shadow-sm" />
-                  <h2 className="text-2xl sm:text-3xl font-black text-brand-navy">
+                  <h2 className="text-xl sm:text-3xl font-black text-brand-navy">
                     {category.title}
                   </h2>
                   <span className="text-xs font-black text-brand-orange bg-orange-50 border border-brand-orange/20 px-2.5 py-0.5 rounded-full">
@@ -320,7 +320,7 @@ export const CategoryModal = ({ category, onClose, onRequestQuote }) => {
           {/* =========================================================================
               4. ACTION BUTTONS (FOOTER)
               ========================================================================= */}
-          <div className="pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="pt-3 sm:pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
             <button
               type="button"
               onClick={handleNavigateToCatalog}

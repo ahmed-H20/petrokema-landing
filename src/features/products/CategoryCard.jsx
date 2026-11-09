@@ -22,11 +22,11 @@ export const CategoryCard = ({ category, onSelect }) => {
   return (
     <div
       onClick={handleCardClick}
-      className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-100 shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer transform hover:-translate-y-2 select-none"
+      className="group bg-white rounded-xl sm:rounded-3xl overflow-hidden border border-slate-100 shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer transform hover:-translate-y-2 select-none"
     >
       <div>
         {/* Category Image Frame */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+        <div className="relative aspect-square sm:aspect-[4/3] w-full overflow-hidden bg-slate-100">
           <img
             src={category.image}
             alt={category.title}
@@ -39,30 +39,30 @@ export const CategoryCard = ({ category, onSelect }) => {
         </div>
 
         {/* Card Content Area */}
-        <div className="p-4 sm:p-5 text-right">
+        <div className="p-1.5 pt-2 sm:p-5 text-right">
           {/* Title row with orange accent bar & number pill */}
-          <div className="flex items-center justify-between mb-1.5">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-5 bg-brand-orange rounded-full inline-block shrink-0 shadow-xs" />
-              <h3 className="text-xl sm:text-2xl font-black text-brand-navy group-hover:text-brand-orange transition-colors">
+          <div className="flex items-center justify-between gap-1 mb-1 sm:mb-1.5">
+            <div className="flex items-center gap-1 sm:gap-2 min-w-0">
+              <span className="w-0.5 h-3 sm:w-1.5 sm:h-5 bg-brand-orange rounded-full inline-block shrink-0 shadow-xs" />
+              <h3 className="text-[11px] leading-tight sm:leading-normal sm:text-2xl font-black text-brand-navy group-hover:text-brand-orange transition-colors">
                 {category.title}
               </h3>
             </div>
-            <span className="text-xs font-black text-brand-orange bg-orange-50 px-2.5 py-0.5 rounded-md border border-orange-100/80">
+            <span className="text-[9px] sm:text-xs font-black text-brand-orange bg-orange-50 px-1 sm:px-2.5 py-0 sm:py-0.5 rounded sm:rounded-md shrink-0 border border-orange-100/80">
               {category.number}
             </span>
           </div>
 
           {/* Subtitle */}
           {category.subtitle && (
-            <p className="text-xs sm:text-sm text-slate-500 font-medium leading-relaxed mt-1">
+            <p className="text-[9px] leading-snug line-clamp-2 sm:line-clamp-none sm:text-sm text-slate-500 font-medium sm:leading-relaxed mt-0.5 sm:mt-1">
               {category.subtitle}
             </p>
           )}
 
           {/* Items / Products List */}
           {category.items && category.items.length > 0 && (
-            <div className="mt-3.5 pt-3 border-t border-slate-100">
+            <div className="hidden sm:block mt-3.5 pt-3 border-t border-slate-100">
 
               <div className="flex flex-wrap gap-1.5">
                 {category.items.map((item, idx) => (
@@ -81,17 +81,17 @@ export const CategoryCard = ({ category, onSelect }) => {
       </div>
 
       {/* Action Footer */}
-      <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-2 flex items-center justify-between border-t border-slate-50">
-        <span className="text-xs font-bold text-slate-400 group-hover:text-brand-orange transition-colors">
+      <div className="px-1.5 sm:px-5 pb-1.5 sm:pb-5 pt-1 sm:pt-2 flex items-center justify-between border-t border-slate-50">
+        <span className="text-[10px] sm:text-xs font-bold text-slate-400 group-hover:text-brand-orange transition-colors">
           استكشف
         </span>
 
         <button
           type="button"
           aria-label={`استعراض ${category.title}`}
-          className="w-10 h-10 rounded-full bg-brand-orange text-white flex items-center justify-center shadow-md group-hover:bg-brand-orange-hover group-hover:scale-110 group-hover:shadow-lg transition-all duration-300"
+          className="w-6 h-6 sm:w-10 sm:h-10 rounded-full bg-brand-orange text-white flex items-center justify-center shadow-md group-hover:bg-brand-orange-hover group-hover:scale-110 group-hover:shadow-lg transition-all duration-300"
         >
-          <ArrowLeft className="w-5 h-5 transform transition-transform group-hover:-translate-x-1" />
+          <ArrowLeft className="w-3 h-3 sm:w-5 sm:h-5 transform transition-transform group-hover:-translate-x-1" />
         </button>
       </div>
     </div>
