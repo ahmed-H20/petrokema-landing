@@ -34,6 +34,15 @@
   background: #e85d26;
 }
 
+/* Hide scrollbar (horizontal color bar etc.) */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* RTL-aware animations */
 @keyframes fadeInLeft {
   from {

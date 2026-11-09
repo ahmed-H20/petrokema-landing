@@ -53,32 +53,41 @@ export const SOCIAL_LINKS = [
 ];
 
 export const HERO_COLOR_PALETTES = [
-  // 1. باقة الألوان العصرية (12 لوناً)
+  // ترتيب موحّد: المحايدات من الفاتح للغامق، ثم الألوان بحسب الدرجة (أحمر → برتقالي → أصفر → أخضر → أزرق → وردي)، وداخل كل درجة من الفاتح للغامق
+  // الألوان ذات الخاصية baked صورها تحمل اللون جاهزاً فلا تُضاف عليها طبقة تلوين
   { id: 'off-white', name: 'أوف وايت', nameEn: 'Off White', hex: '#F3EFE5', bgClass: 'bg-[#F3EFE5]', img: '/media/images/hero/hero-wall-gray.jpg' },
-  { id: 'cashmere', name: 'كشمير', nameEn: 'Cashmere', hex: '#B89B9D', bgClass: 'bg-[#B89B9D]', img: '/media/images/hero/hero-wall-camel.jpg' },
-  { id: 'vanilla-latte', name: 'فانيلا لاتيه', nameEn: 'Vanilla Latte', hex: '#C9B69C', bgClass: 'bg-[#C9B69C]', img: '/media/images/hero/hero-wall-camel.jpg' },
-  { id: 'greige', name: 'جريج', nameEn: 'Greige', hex: '#B8ADA0', bgClass: 'bg-[#B8ADA0]', img: '/media/images/hero/hero-wall-gray.jpg' },
+  { id: 'classic-white', name: 'كلاسيك وايت', nameEn: 'Classic White', code: 'S 0500-N', hex: '#E6DDD4', bgClass: 'bg-[#E6DDD4]', img: '/media/images/hero/hero-wall-classic-white.webp', baked: true },
+  { id: 'ivory', name: 'آيفوري', nameEn: 'Ivory', code: 'S 0505-Y10R', hex: '#EADCCE', bgClass: 'bg-[#EADCCE]', img: '/media/images/hero/hero-wall-ivory.webp', baked: true },
+  { id: 'sky-light', name: 'سكاي لايت', nameEn: 'Sky Light', code: '1624', hex: '#E2D9D0', bgClass: 'bg-[#E2D9D0]', img: '/media/images/hero/hero-wall-sky-light.webp', baked: true },
+  { id: 'summer-snow', name: 'سمر سنو', nameEn: 'Summer Snow', code: 'S 0502-Y', hex: '#E5D7C8', bgClass: 'bg-[#E5D7C8]', img: '/media/images/hero/hero-wall-summer-snow.webp', baked: true },
+  { id: 'timeless', name: 'تايملس', nameEn: 'Timeless', code: 'S 1024-Y', hex: '#DBD5CF', bgClass: 'bg-[#DBD5CF]', img: '/media/images/hero/hero-wall-timeless.webp', baked: true },
+  { id: 'vanilla-latte', name: 'فانيلا لاتيه', nameEn: 'Vanilla Latte', code: 'S 2010-Y30R', hex: '#DECFBD', bgClass: 'bg-[#DECFBD]', img: '/media/images/hero/hero-wall-vanilla-latte.webp', baked: true },
+  { id: 'limestone', name: 'لايمستون', nameEn: 'Limestone', code: '10341', hex: '#D9C9BC', bgClass: 'bg-[#D9C9BC]', img: '/media/images/hero/hero-wall-limestone.webp', baked: true },
+  { id: 'sand', name: 'ساند', nameEn: 'Sand', code: 'S 2010-Y20R', hex: '#D5C7BD', bgClass: 'bg-[#D5C7BD]', img: '/media/images/hero/hero-wall-sand.webp', baked: true },
   { id: 'beige', name: 'بيج', nameEn: 'Beige', hex: '#D6C3A5', bgClass: 'bg-[#D6C3A5]', img: '/media/images/hero/hero-wall-camel.jpg' },
-  { id: 'gray', name: 'رمادي', nameEn: 'Gray', hex: '#808080', bgClass: 'bg-[#808080]', img: '/media/images/hero/hero-wall-gray.jpg' },
-  { id: 'baby-blue', name: 'بيبي بلو', nameEn: 'Baby Blue', hex: '#89CFF0', bgClass: 'bg-[#89CFF0]', img: '/media/images/hero/hero-wall-skyblue.jpg' },
-  { id: 'sage-green', name: 'أخضر سيج', nameEn: 'Sage Green', hex: '#A3AD91', bgClass: 'bg-[#A3AD91]', img: '/media/images/hero/hero-wall-green.jpg' },
-  { id: 'olive-green', name: 'أخضر زيتوني', nameEn: 'Olive Green', hex: '#777D55', bgClass: 'bg-[#777D55]', img: '/media/images/hero/hero-wall-green.jpg' },
-  { id: 'mocha', name: 'موكا', nameEn: 'Mocha Brown', hex: '#806451', bgClass: 'bg-[#806451]', img: '/media/images/hero/hero-wall-brown.jpg' },
-  { id: 'brandy', name: 'براندي', nameEn: 'Brandy', hex: '#A65E46', bgClass: 'bg-[#A65E46]', img: '/media/images/hero/hero-wall-darkbrown.jpg' },
-  { id: 'terracotta', name: 'تيراكوتا', nameEn: 'Terracotta', hex: '#BD765C', bgClass: 'bg-[#BD765C]', img: '/media/images/hero/hero-wall-red.jpg' },
-
-  // 2. باقة الألوان الأساسية الكلاسيكية السابقة (بدون أكواد)
-  { id: 'blue', name: 'أزرق', nameEn: 'Blue', hex: '#1550A2', bgClass: 'bg-[#1550A2]', img: '/media/images/hero/hero-wall-blue.jpg' },
-  { id: 'skyblue', name: 'لبني', nameEn: 'Sky Blue', hex: '#76BDE8', bgClass: 'bg-[#76BDE8]', img: '/media/images/hero/hero-wall-skyblue.jpg' },
-  { id: 'green', name: 'أخضر', nameEn: 'Green', hex: '#187B42', bgClass: 'bg-[#187B42]', img: '/media/images/hero/hero-wall-green.jpg' },
-  { id: 'yellow', name: 'أصفر', nameEn: 'Yellow', hex: '#F3CC21', bgClass: 'bg-[#F3CC21]', img: '/media/images/hero/hero-wall-yellow.jpg' },
-  { id: 'red', name: 'أحمر', nameEn: 'Red', hex: '#C71E2D', bgClass: 'bg-[#C71E2D]', img: '/media/images/hero/hero-wall-red.jpg' },
-  { id: 'camel', name: 'جملي', nameEn: 'Camel', hex: '#BD8955', bgClass: 'bg-[#BD8955]', img: '/media/images/hero/hero-wall-camel.jpg' },
-  { id: 'brown', name: 'بني', nameEn: 'Brown', hex: '#75452D', bgClass: 'bg-[#75452D]', img: '/media/images/hero/hero-wall-brown.jpg' },
-  { id: 'darkbrown', name: 'بني غامق', nameEn: 'Dark Brown', hex: '#482719', bgClass: 'bg-[#482719]', img: '/media/images/hero/hero-wall-darkbrown.jpg' },
-  { id: 'lead-gray', name: 'رصاصي', nameEn: 'Lead Gray', hex: '#85898C', bgClass: 'bg-[#85898C]', img: '/media/images/hero/hero-wall-gray.jpg' },
-  { id: 'black', name: 'أسود', nameEn: 'Black', hex: '#111111', bgClass: 'bg-[#111111]', img: '/media/images/hero/hero-wall-black.jpg' },
+  { id: 'cashmere', name: 'كشمير', nameEn: 'Cashmere', code: 'S 2005-Y20R', hex: '#B89B9D', bgClass: 'bg-[#B89B9D]', img: '/media/images/hero/hero-wall-camel.jpg' },
+  { id: 'oxford-river', name: 'أكسفورد ريفر', nameEn: 'Oxford River', code: 'S 6502-B', hex: '#A69897', bgClass: 'bg-[#A69897]', img: '/media/images/hero/hero-wall-oxford-river.webp', baked: true },
+  { id: 'mauve', name: 'موفي', nameEn: 'Mauve', code: 'S 3020-R50B', hex: '#A49395', bgClass: 'bg-[#A49395]', img: '/media/images/hero/hero-wall-mauve.webp', baked: true },
+  { id: 'lead-gray', name: 'رصاصي', nameEn: 'Lead Gray', code: 'S 5500-N', hex: '#85898C', bgClass: 'bg-[#85898C]', img: '/media/images/hero/hero-wall-gray.jpg' },
+  { id: 'gray', name: 'رمادي', nameEn: 'Gray', code: 'S 3500-N', hex: '#808080', bgClass: 'bg-[#808080]', img: '/media/images/hero/hero-wall-gray.jpg' },
+  { id: 'black', name: 'أسود', nameEn: 'Black', code: 'S 9000-N', hex: '#111111', bgClass: 'bg-[#111111]', img: '/media/images/hero/hero-wall-black.jpg' },
+  { id: 'red', name: 'أحمر', nameEn: 'Red', code: 'S 2070-R', hex: '#C71E2D', bgClass: 'bg-[#C71E2D]', img: '/media/images/hero/hero-wall-red.jpg' },
+  { id: 'burgundy', name: 'برجاندي', nameEn: 'Burgundy', code: 'S 6030-R10B', hex: '#633A42', bgClass: 'bg-[#633A42]', img: '/media/images/hero/hero-wall-burgundy.webp', baked: true },
+  { id: 'orange', name: 'برتقالي', nameEn: 'Orange', code: 'S 2070-Y50R', hex: '#D26F45', bgClass: 'bg-[#D26F45]', img: '/media/images/hero/hero-wall-orange.webp', baked: true },
+  { id: 'mocha', name: 'موكا', nameEn: 'Mocha Brown', code: 'S 4010-Y50R', hex: '#806451', bgClass: 'bg-[#806451]', img: '/media/images/hero/hero-wall-brown.jpg' },
+  { id: 'brown', name: 'بني', nameEn: 'Brown', code: 'S 5030-Y30R', hex: '#75452D', bgClass: 'bg-[#75452D]', img: '/media/images/hero/hero-wall-brown.jpg' },
+  { id: 'darkbrown', name: 'بني غامق', nameEn: 'Dark Brown', code: 'S 7020-Y30R', hex: '#482719', bgClass: 'bg-[#482719]', img: '/media/images/hero/hero-wall-darkbrown.jpg' },
+  { id: 'camel', name: 'جملي', nameEn: 'Camel', code: 'S 3020-Y30R', hex: '#BD8955', bgClass: 'bg-[#BD8955]', img: '/media/images/hero/hero-wall-camel.jpg' },
+  { id: 'yellow', name: 'أصفر', nameEn: 'Yellow', code: 'S 1070-Y', hex: '#F3CC21', bgClass: 'bg-[#F3CC21]', img: '/media/images/hero/hero-wall-yellow.jpg' },
+  { id: 'lemony', name: 'لموني', nameEn: 'Lemony', code: 'S 0560-Y10G', hex: '#AABB3C', bgClass: 'bg-[#AABB3C]', img: '/media/images/hero/hero-wall-lemony.webp', baked: true },
+  { id: 'olive-green', name: 'أخضر زيتوني', nameEn: 'Olive Green', code: 'S 5030-G70Y', hex: '#777D55', bgClass: 'bg-[#777D55]', img: '/media/images/hero/hero-wall-green.jpg' },
+  { id: 'baby-blue', name: 'بيبي بلو', nameEn: 'Baby Blue', code: 'S 1020-B', hex: '#89CFF0', bgClass: 'bg-[#89CFF0]', img: '/media/images/hero/hero-wall-skyblue.jpg' },
+  { id: 'blue', name: 'أزرق', nameEn: 'Blue', code: 'S 2060-B', hex: '#1550A2', bgClass: 'bg-[#1550A2]', img: '/media/images/hero/hero-wall-blue.jpg' },
+  { id: 'breeze', name: 'بريز', nameEn: 'Breeze', code: '0552', hex: '#DDCFD8', bgClass: 'bg-[#DDCFD8]', img: '/media/images/hero/hero-wall-breeze.webp', baked: true },
+  { id: 'pink', name: 'بينك', nameEn: 'Pink', code: 'S 1030-R20B', hex: '#C54A79', bgClass: 'bg-[#C54A79]', img: '/media/images/hero/hero-wall-pink.webp', baked: true },
 ];
+
+export const DEFAULT_HERO_COLOR = HERO_COLOR_PALETTES.find((c) => c.id === 'off-white');
 
 export const PAINT_COLORS = HERO_COLOR_PALETTES;
 
